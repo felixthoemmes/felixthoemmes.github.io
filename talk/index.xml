@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks on Felix Thoemmes</title>
-    <link>/talk/</link>
+    <link>https://felixthoemmes.github.io/talk/</link>
     <description>Recent content in Recent &amp; Upcoming Talks on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,11 +11,29 @@
     <atom:link href="/talk/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Exploiting Naturally Occurring Discontinuities to Infer Causal Eﬀects</title>
-      <link>/talk/srcd_rdd/</link>
+      <title>Exploiting Naturally Occurring Discontinuities to Infer Causal Effects</title>
+      <link>https://felixthoemmes.github.io/talk/srcd_rdd/</link>
       <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/talk/srcd_rdd/</guid>
+      <guid>https://felixthoemmes.github.io/talk/srcd_rdd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>An applied introduction to propensity score methods</title>
+      <link>https://felixthoemmes.github.io/talk/psworkshop_tubingen/</link>
+      <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixthoemmes.github.io/talk/psworkshop_tubingen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evaluating the Use of Propensity Scores with Multilevel Data (with N. Greiffer)</title>
+      <link>https://felixthoemmes.github.io/talk/psmultilevel_m3/</link>
+      <pubDate>Wed, 08 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixthoemmes.github.io/talk/psmultilevel_m3/</guid>
       <description></description>
     </item>
     
