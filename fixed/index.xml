@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixed on Felix Thoemmes</title>
+    <link>/fixed/</link>
+    <description>Recent content in Fixed on Felix Thoemmes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
+    
+	<atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Biography Felix Thoemmes is an assistant professor in the department of Human Development, with joint appointment in the Department of Psychology, at Cornell University. His research interests are causal inference, especially using structural equation models, or propensity scores, missing data, and open science. Before coming to Cornell, he was an assistant professor at Texas A&amp;amp;M University, and the University of Tubingen, Germany.
+A current CV can be downloaded here.</description>
+    </item>
+    
+  </channel>
+</rss>
