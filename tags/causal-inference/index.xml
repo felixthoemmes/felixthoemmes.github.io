@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Causal Inference on Felix Thoemmes</title>
-    <link>https://felixthoemmes.github.io/tags/causal-inference/</link>
+    <link>/tags/causal-inference/</link>
     <description>Recent content in Causal Inference on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Regression Discontinuity Designs</title>
-      <link>https://felixthoemmes.github.io/project/rdd/</link>
+      <link>/project/rdd/</link>
       <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://felixthoemmes.github.io/project/rdd/</guid>
+      <guid>/project/rdd/</guid>
       <description></description>
     </item>
     

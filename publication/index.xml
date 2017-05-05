@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Felix Thoemmes</title>
-    <link>https://felixthoemmes.github.io/publication/</link>
+    <link>/publication/</link>
     <description>Recent content in Publications on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Local Fit Evaluation of Structural Equation Models Using Graphical Criteria</title>
-      <link>https://felixthoemmes.github.io/publication/localtestpm/</link>
+      <link>/publication/localtestpm/</link>
       <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://felixthoemmes.github.io/publication/localtestpm/</guid>
+      <guid>/publication/localtestpm/</guid>
       <description></description>
     </item>
     
