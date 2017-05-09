@@ -21,5 +21,25 @@
 A current CV can be downloaded here.</description>
     </item>
     
+    <item>
+      <title>Publications</title>
+      <link>/publications/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>/publications/</guid>
+      <description>Peer-reviewed publications 2017 Thoemmes, F., Rosseel, Y., &amp;amp; Textor, J. (in press). Local Testing of Structural Equation Models. Psychological Methods.
+2016 Coman, E., Thoemmes, F., &amp;amp; Fifield, J. Commentary: Muthèn, B., &amp;amp; Asparouhov, T. (2016). Causal effects in mediation modeling: An introduction with applications to latent variables. Structural Equation Modeling: A Multidisciplinary Journal, 22(1), 12-23. (in press). Frontiers in Psychology, Section Quantitative Psychology and Measurement.
+Thoemmes, F., Liao, W., &amp;amp; Jin, Z.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/</guid>
+      <description>code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs &amp;&amp; document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() {hljs.initHighlighting();}, 0);}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.table th:not([align]) {text-align: left;}.</description>
+    </item>
+    
   </channel>
 </rss>
