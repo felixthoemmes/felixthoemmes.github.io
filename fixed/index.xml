@@ -22,6 +22,24 @@ A current CV can be downloaded here.</description>
     </item>
     
     <item>
+      <title>Open Science</title>
+      <link>/open-science/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>/open-science/</guid>
+      <description>I subscribe to principles of open science and reproducible research. I have signed the commitment to research transparency, originally developed by Felix Schönbrodt. I encourage you to read the twelve points of this commitment, but in brief, signatories try to provide raw data, and reproducible computer code, with every submitted manuscript, and ask for both of these from other authors whose work they are reviewing. I am also a signatory of the Peer Reviewers&amp;rsquo; Openness Initiative, originally developed by Richard Morey, and others.</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/projects/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>2017 Thoemmes, F., Rosseel, Y., &amp;amp; Textor, J. (in press). Local Testing of Structural Equation Models. Psychological Methods.</description>
+    </item>
+    
+    <item>
       <title>Publications</title>
       <link>/publications/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
@@ -33,12 +51,12 @@ Thoemmes, F., Liao, W., &amp;amp; Jin, Z.</description>
     </item>
     
     <item>
-      <title></title>
-      <link>/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <title>Teaching</title>
+      <link>/teaching/</link>
+      <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/</guid>
-      <description>code{white-space: pre;}pre:not([class]) {background-color: white;}if (window.hljs &amp;&amp; document.readyState &amp;&amp; document.readyState === &#34;complete&#34;) {window.setTimeout(function() {hljs.initHighlighting();}, 0);}h1 {font-size: 34px;}h1.title {font-size: 38px;}h2 {font-size: 30px;}h3 {font-size: 24px;}h4 {font-size: 18px;}h5 {font-size: 16px;}h6 {font-size: 12px;}.table th:not([align]) {text-align: left;}.</description>
+      <guid>/teaching/</guid>
+      <description>I offer Quantitative Methods (QM) 1, and 2, on a regular basis, and QM 3 on a somehwat irregular basis. All courses are cross-listed between Human Development and Psychology, and are open to graduate students and advanced undergraduate students. In the past I also taught Introduction to Research Methods for undergraduates. Each semester, I offer a reading group (together with my colleague Anthony Ong) that is focused on methods. It is called MSG (Methods Study Group).</description>
     </item>
     
   </channel>
