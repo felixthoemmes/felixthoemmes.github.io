@@ -47,8 +47,7 @@ A current CV can be downloaded here.</description>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
       <guid>/projects/</guid>
-      <description> In this section I provide short narratives and information about past, and ongoing research projects.
-2017 </description>
+      <description>Regression-discontinuity designs In 2014 I was funded by the Institute for Education Sciences (IES) to develop a user-friendly software for educational researchers to perform the analysis of a regression-discontinuity design (RDD). There are already several R packages available that perform these analyses, but we wanted to also provide a graphical user interface, and also add new features. We chose R Shiny to program our graphical interface, and we have added some functionality that is not covered by existing R packages.</description>
     </item>
     
     <item>
