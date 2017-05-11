@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 05 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A second test</title>
+      <link>/blog/a-second-test/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/a-second-test/</guid>
+      <description>Do I need to enter any Disqus code on this website? Let’s find out!
+And down here is hopefully Disqus.</description>
+    </item>
     
     <item>
       <title>Mini R test</title>

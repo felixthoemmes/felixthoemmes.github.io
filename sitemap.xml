@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/blog/a-second-test/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/mini-r-test/</loc>
     <lastmod>2017-05-05T00:00:00+00:00</lastmod>
   </url>
@@ -33,7 +38,7 @@
   
   <url>
     <loc>/blog/</loc>
-    <lastmod>2017-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -44,7 +49,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-05-05T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -56,6 +61,12 @@
   
   <url>
     <loc>/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/test/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
