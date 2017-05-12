@@ -1,0 +1,6 @@
+library(blogdown)
+#new_site(theme="gcushen/hugo-academic")
+install_theme("nishanths/cocoa-hugo-theme", theme_example = FALSE, update_config = TRUE)
+install_theme("gcushen/hugo-academic", theme_example = FALSE, update_config = TRUE)
+build_site()
+serve_site()
