@@ -1,0 +1,31 @@
+---
+title: Hello World
+author: Felix Thoemmes
+date: '2017-05-12'
+slug: ''
+categories: [hello]
+tags: [hello]
+---
+
+As [Rich Lucas](http://deskreject.com/) recently said, it seems somewhat anachronistic to start a blog in 2017, but here I am... doing it anyway. 
+
+`r htmltools::HTML("{{< tweet 859460104462061569 >}}")`
+
+The main reason why I started this blog was probably because I enjoy reading other blogs. So instead of doing the obligatory blog roll section, I will simply write about some blogs that I like. 
+
+The one blog that I can remember following first (and still am following to this day), is [Andrew Gelman's blog](http://wwww.andrewgelman.com). I enjoy the variety of subjects that he publishes, and the frequency of his updates. It's a lot of great stuff on his blog, and the discussions are often as good as the blog posts themselves. 
+
+Other blogs I enjoy are [Daniel Lakens'](http://daniellakens.blogspot.com), who in fact wrote about why he believes blogs are [of higher scientific quality than journal articles](http://daniellakens.blogspot.com/2017/04/five-reasons-blog-posts-are-of-higher.html). A contentious statement, but he has some good reasons to back it up.
+
+The blog by [Leif Nelson, Joe Simmons, and Uri Simonsohn](datacolada.org) also ranks among my favorites. Their topics are always very carefully researched, and their presentations are always fair and measured, especially if there are making a point that certain practices and approaches (often to data analysis) are sub-par.
+
+[John Myles White](http://www.johnmyleswhite.com/) doesn't blog that often anymore these days, but when he does, it's usually worth the read. 
+
+[Deborah Mayo](http://www.errorstatistics.com/) often blogs about Frequentist statistics, and I often found interesting thoughts about p-values, statistical power, and severity of tests in her writing. She also has an ongoing competition where you have to form palindromes, and can win one of her books. 
+
+[Felix Schönbrodt](http://www.nicebread.de) has an amazing collection of shiny apps related to replication, and other foundational aspects of statistics. He also blogs about open science and Bayesian statistics, and has an overall really great web presence. 
+
+I could have added many more... there is a lot of great content on blogs out there.
+
+So what can you expect on this blog? Most of the blog posts will be about statistics, very broadly defined. I am personally interested in causal inference, missing data, and open science, so these topics are probably going to show up. If I feel brave, I might even add some opionon about current events
+

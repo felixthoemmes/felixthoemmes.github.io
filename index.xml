@@ -12,33 +12,14 @@
     
     
     <item>
-      <title>Mini R test 2</title>
-      <link>/blog/mini-r-test-2/</link>
+      <title>Hello World</title>
+      <link>/blog/hello-world/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/mini-r-test-2/</guid>
-      <description>Part Threex &amp;lt;- runif(10,0,1)hist(x,col=&amp;quot;dodgerblue&amp;quot;)abline(h=.5,col=&amp;quot;red&amp;quot;)</description>
-    </item>
-    
-    <item>
-      <title>A second test</title>
-      <link>/blog/a-second-test/</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/a-second-test/</guid>
-      <description>Do I need to enter any Disqus code on this website? Let’s find out!
-And down here is hopefully Disqus.</description>
-    </item>
-    
-    <item>
-      <title>Mini R test</title>
-      <link>/blog/mini-r-test/</link>
-      <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/mini-r-test/</guid>
-      <description>Part OneOne morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.
-He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.
-The bedding was hardly able to cover it and seemed ready to slide off any moment. His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked.</description>
+      <guid>/blog/hello-world/</guid>
+      <description>As Rich Lucas recently said, it seems somewhat anachronistic to start a blog in 2017, but here I am… doing it anyway.
+Well, I worry that starting a blog in 2017 is a bit like creating a myspace page in 2010, but here goes: https://t.co/12RevfumqL
+&amp;mdash; Rich Lucas (@rlucas11) May 2, 2017 The main reason why I started this blog was probably because I enjoy reading other blogs. So instead of doing the obligatory blog roll section, I will simply write about some blogs that I like.</description>
     </item>
     
     <item>

@@ -2,18 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/blog/mini-r-test-2/</loc>
+    <loc>/blog/hello-world/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/a-second-test/</loc>
-    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/mini-r-test/</loc>
-    <lastmod>2017-05-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -65,18 +55,19 @@
   </url>
   
   <url>
-    <loc>/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/test/</loc>
+    <loc>/tags/hello/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/test/</loc>
+    <loc>/categories/hello/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

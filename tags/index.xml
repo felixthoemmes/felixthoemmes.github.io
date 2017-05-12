@@ -6,16 +6,17 @@
     <description>Recent content in Tags on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
+    <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Test</title>
-      <link>/tags/test/</link>
+      <title>Hello</title>
+      <link>/tags/hello/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/tags/test/</guid>
+      <guid>/tags/hello/</guid>
       <description></description>
     </item>
     
