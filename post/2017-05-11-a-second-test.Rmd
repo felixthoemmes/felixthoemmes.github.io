@@ -1,0 +1,23 @@
+---
+title: A second test
+author: Felix Thoemmes
+date: '2017-05-11'
+slug: ''
+categories: []
+tags:
+  - test
+---
+
+Do I need to enter any Disqus code on this website? Let's find out!
+
+```{r,tidy=TRUE,echo=FALSE,cache=TRUE}
+library(plyr)
+xfun <- function() {
+  x <- runif(2,0,1)
+  mean(x)
+}
+res1 <- raply(100,xfun())
+hist(res1,breaks = 50,col = "aliceblue")
+```
+
+And down here is hopefully Disqus. 
