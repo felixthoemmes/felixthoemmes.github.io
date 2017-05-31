@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Recently Wang et al. published a paper in the Journal of Experimental Psychology on pre-registered analyses and the use of covariates in un-registered, exploratory, post-hoc analyses, specifically in the context of randomized experiments 1.
+I am in 100% agreement with the vast majority of what the authors have to say, and also with the general sentiment of the paper, which I summarize as follows:
+1.) Pre-register your analyses and report the results of your pre-registration fully">
+
+<meta property="og:title" content="Keeping exploratory and confirmatory strictly separate" />
+<meta property="og:description" content="Recently Wang et al. published a paper in the Journal of Experimental Psychology on pre-registered analyses and the use of covariates in un-registered, exploratory, post-hoc analyses, specifically in the context of randomized experiments 1.
+I am in 100% agreement with the vast majority of what the authors have to say, and also with the general sentiment of the paper, which I summarize as follows:
+1.) Pre-register your analyses and report the results of your pre-registration fully" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/keeping-exploratory-and-confirmatory-strictly-separate/" />
+
+
+
+<meta property="article:published_time" content="2017-05-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-05-27T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Keeping exploratory and confirmatory strictly separate 
+
+</title>
+<link rel="canonical" href="/blog/keeping-exploratory-and-confirmatory-strictly-separate/">
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="/css/reset.css?t=2017-05-30%2022%3a31%3a05.5164508%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/pygments.css?t=2017-05-30%2022%3a31%3a05.5164508%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/main.css?t=2017-05-30%2022%3a31%3a05.5164508%20-0400%20EDT">
+    
+        <link rel="stylesheet" href="/css/override.css?t=2017-05-30%2022%3a31%3a05.5164508%20-0400%20EDT">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="/"><img class="avatar" src="/img/profile.jpg" srcset="/img/profile.jpg 1x"></a>
+            
+            <a href="/"><div class="name">Felix Thoemmes</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-Blog"><a href="/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-Publications"><a href="/publications/"><span>Publications</span></a></li>
+                    
+                        <li class="nav-Teaching"><a href="/teaching/"><span>Teaching</span></a></li>
+                    
+                        <li class="nav-Open science"><a href="/open-science/"><span>Open Science</span></a></li>
+                    
+                        <li class="nav-Projects"><a href="/projects/"><span>Projects</span></a></li>
+                    
+                        <li class="nav-About"><a href="/about/"><span>About (CV)</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:felix.thoemmes@cornell.edu"><img class="icon" src="/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="/index.xml"><img class="icon" src="/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Keeping exploratory and confirmatory strictly separate
+
+</div>
+
+                    <div class="initials"><a href="/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Sat May 27 2017 00:00:00 UTC'>May 27, 2017</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>Recently <a href="http://www.sciencedirect.com/science/article/pii/S0022103116308095">Wang et al.</a> published a paper in the Journal of Experimental Psychology on pre-registered analyses and the use of covariates in un-registered, exploratory, post-hoc analyses, specifically in the context of randomized experiments <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>I am in 100% agreement with the vast majority of what the authors have to say, and also with the general sentiment of the paper, which I summarize as follows:</p>
+<p>1.) Pre-register your analyses and report the results of your pre-registration fully<br />
+2.) If you decide to run an unregistered analysis, mark it as exploratory</p>
+<p>This is pretty much exactly what I teach my students, what I tell my collaborators, and what I try to do myself in all of my own projects. I think it is wonderful that this is so clearly expressed in this paper, because it’s an important message that deserves to be spread.</p>
+<p>Wang et al. then continue to discuss how adding a covariate (preferably one that is strongly related to the outcome) in a data-dependent fashion influences both Type I error and power (hence Type II error). They are only considering a situation in which the treatment was randomized, but in which the inclusion of the covariate was not pre-registered, and is thus exploratory, data-dependent (because it is only done if the unadjusted effect is not significant), and post-hoc. Their argument is simple and straight-forward: the inclusion of such a covariate can greatly decrease Type II errors (because power is increased), and will only increase Type I errors a bit (they are increased because a data-dependent additional analysis is performed). They quantify these errors in a simulation study, and pitch this strategy as one of smart post-hoc exploration of an insignificant result. I think it is also fair to say that they elevate this particular strategy to a special place in all of the exploratory analyses that could have been done. They note e.g., in a supplement that also including the interaction of the covariate and the treatment might not be a good idea, because Type I error inflation seems too high.</p>
+<p>Where exactly is my objection? It’s based on a possibly overly strict desire of keeping exploratory and confirmatory research separate from each other. I feel that in Wang et al.’s recommendation they introduce essentially a gray area between the two. To be completely fair, they explicitly note that one should label pre-registered results as confirmatory, and post-hoc as exploratory results, but I think it is also fair to say that they do give a special place for this one particular technique (the estimation of a covariate-adjusted effect using the linear term of a covariate). They consider it a smart way to do a data-dependent post-hoch, exploratory analysis. An applied researcher could easily interpret this as follows: If my original pre-registered analysis does not yield p &lt; .05, then Wang et al. tell me that I now have ONE, and only one, additional shot at p &lt; .05, which is to include a single covariate. If I get p &lt; .05 in that analysis, I still label it as exploratory, but this is somewhat more sanctified than if I had done a whole bunch of other analyses, and it somehow edges more closer to the confirmatory realm.</p>
+<p>I would recommend (just as Wang et al.) to label pre-registered results as confirmatory tests of hypotheses. All exploratory results should be labeled and treated as exploratory. That means if you didn’t find the desired effect in your pre-registered results, and only find it once you adjust for a covariate, then this finding should not be used to imply confirmatory evidence for your hypothesis. In addition, and this is contrary to Wang et al. I would not place any limit on the exploratory analyses that one can engage in, as long as they are reported in full, and all labeld as exploratory. Here is why: conducting an exploratory analysis implies just that - being exploratory. Once you are not in confirmation mode anymore, you should be encouraged to be exploratory. Whatever results you find, do not treat them as hypothesis-conforming, but hypothesis-generating, and if possible, follow them up with a replication. As an example, Wang et al. note that the interaction between the covariate and the treatment should not be probed in a data-dependent fashion. What, however, if this interaction is part of the data-generating model (“the ground truth”)? This is exactly what we would like to find in an exploratory fashion - and then, of course, follow-up with a pre-registered replication for any effect that we found.</p>
+<p>One thing I should mention is that there might be a misconception among researchers that once you have a pre-registration in place, your hands are tied not to do any other analysis (Wang et al. describe such a person who never conducts any additional analyses in their paper). I am not sure how widespread this belief is, but there is really nothing that prevents a researcher from doing additional, exploratory, post-hoc, data-dependent, snooping analyses (as long as they are labeled exploratory and are reported in full!). The pre-registration “only” provides a demarcation line between hypothesis-conforming and hypothesis-generating research, prevents HARKing (Hypothesizing after results are known), and keeps researchers honest. So if this is a widespread belief, then the Wang et al. paper is again doing a great job of dispelling it.</p>
+<p>P.S. Uli Schimmack actually beat me to this conclusion, and posted it on the Psych Methods Facebook page…</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>While I don’t know the authors of this paper, for full disclosure, I should mention that the senior author of this paper, Alison Ledgerwood, was the editor on a paper of mine for Perspectives on Psychological Science. She was an outstanding editor - in fact one of the best I have ever worked with. I felt it’s important to express this here, because if anything, I am positively biased against her, and I am also not directing my criticism directly at her as a person.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+                <br>
+		<p><a href="/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'felixthoemmesblogdown';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99017619-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/R.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+    
+    
+
+
+
+
+</body>
+</html>
+

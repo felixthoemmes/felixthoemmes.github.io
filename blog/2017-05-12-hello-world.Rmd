@@ -1,5 +1,5 @@
 ---
-title: Hello World
+title: Hello World (blog roll)
 author: Felix Thoemmes
 date: '2017-05-12'
 slug: ''
@@ -25,7 +25,9 @@ The blog by [Leif Nelson, Joe Simmons, and Uri Simonsohn](datacolada.org) also r
 
 [Felix Schönbrodt](http://www.nicebread.de) has an amazing collection of shiny apps related to replication, and other foundational aspects of statistics. He also blogs about open science and Bayesian statistics, and has an overall really great web presence. 
 
+Last but not least, thanks to Yihui Xie for making the [blogdown](https://github.com/rstudio/blogdown) package in R. With this package I can write my blog (including this page you are reading here) in RStudio using Markdown. It's awesom. 
+
 I could have added many more... there is a lot of great content on blogs out there.
 
-So what can you expect on this blog? Most of the blog posts will be about statistics, very broadly defined. I am personally interested in causal inference, missing data, and open science, so these topics are probably going to show up. If I feel brave, I might even add some opionon about current events
+So what can you expect on this blog? Most of the blog posts will be about statistics, very broadly defined. I am personally interested in causal inference, missing data, and open science, so these topics are probably going to show up. If I feel brave, I might even add some opionon about current events.
 
