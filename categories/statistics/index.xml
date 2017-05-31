@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Keeping exploratory and confirmatory strictly separate</title>
-      <link>/blog/keeping-exploratory-and-confirmatory-strictly-separate/</link>
+      <title>Keeping exploratory and confirmatory analyses strictly separate</title>
+      <link>/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/keeping-exploratory-and-confirmatory-strictly-separate/</guid>
+      <guid>/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</guid>
       <description>Recently Wang et al. published a paper in the Journal of Experimental Psychology on pre-registered analyses and the use of covariates in un-registered, exploratory, post-hoc analyses, specifically in the context of randomized experiments 1.
 I am in 100% agreement with the vast majority of what the authors have to say, and also with the general sentiment of the paper, which I summarize as follows:
 1.) Pre-register your analyses and report the results of your pre-registration fully</description>

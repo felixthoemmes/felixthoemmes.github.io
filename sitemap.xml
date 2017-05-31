@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/blog/keeping-exploratory-and-confirmatory-strictly-separate/</loc>
+    <loc>/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</loc>
     <lastmod>2017-05-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -60,25 +60,25 @@
   </url>
   
   <url>
-    <loc>/tags/hello/</loc>
-    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/categories/hello/</loc>
     <lastmod>2017-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/statistics/</loc>
-    <lastmod>2017-05-27T00:00:00+00:00</lastmod>
+    <loc>/tags/hello/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/statistics/</loc>
+    <lastmod>2017-05-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/statistics/</loc>
     <lastmod>2017-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
