@@ -1,0 +1,32 @@
+---
+title: "Rounding in the age of statcheck"
+author: "Felix Thoemmes"
+date: '2017-06-05'
+output: pdf_document
+slug: ''
+tags: statistics
+categories: statistics
+---
+
+I recently chatted with a colleague whose work was flagged on PubPeer by the statcheck bot that has been scraping the web last year or so. Her reaction - which I believe is pretty typical - was mild annoyance. To her (and I believe many others) it felt a bit pedantic to be flagged what was essentially a rounding error. She feared that such a flag may create a false impression that the work is a "false positive", and that people jump to conclusions when they see a statcheck error. 
+
+I won't be writing about this aspect of statcheck though. My colleague did make one point that I thought was worth some investigation. She mentioned that she rounded both the reported t-value and the p-value, and that statcheck (when recomputing the p-value from the rounded t-value) would therefore make a mistake, and falsely label her results as incorrect. Let's unpack this a bit...[^1]
+
+### The potential problem of rounding
+
+Assume you have obtained a t-value of 3.454 (with 15 degrees of freedom). Your computed p-value would be `r round(pt(3.454,15,lower.tail=FALSE)*2,4)` (which rounds to .004). But the t-value itself could be reported in a rounded format in the paper. You could report 3.454 (with three digits), 3.45 (round to two digits), or you could even report 3.5 (round to one digit, unusual, but not unseen). For the last two rounded values, statcheck would assume that the t-value is 3.450, and 3.500 (contrary to the fact that it is 3.454), and compute a p-value from those values. That recomputed p-value would then not match the reported one, and an error would be incorrectly flagged. Here is an example in a table.
+
+
+t  | p | rounded t | rounded p | statcheck t | statcheck p |
+---| - |  -------- | --------- |  ---------- | ----------- |
+3.454    | `r round(pt(3.454,15,lower.tail=F)*2,4)` | 3.45 |  0.004 | 3.450 | `r round(pt(3.450,15,lower.tail=F)*2,3)`      | 
+3.454    | `r round(pt(3.454,15,lower.tail=F)*2,4)` | 3.5  |  0.004 |  3.500 | `r round(pt(3.500,15,lower.tail=F)*2,3)`     |    
+
+Note the second column in which the researcher would correctly report .004, but statcheck would recompute .003, and thus flag an error.
+
+### Actually, statcheck makes no such error
+
+After my colleague told me this argument, I went ahead and tested this in statcheck... *and it turns out it makes no such mistake*. I probed statcheck a little bit and then looked at the source code. Statcheck will report the p-value that it obtains from the rounded t-value (what other p-value could it report, really), and while it is also true that the reported and the recomputed p-value will be different, statcheck will only report an error when the difference between the two p-values is inconsistent with rounding based on the reported digits of the t-value. In other words, statcheck checks the accuracy with which you reported your t-value (i.e., the number of decimal places), and then it is smart enough to realize whether you made a rounding error, or whether any discrepancy is due to innocent rounding that is in line with whatever number of digits you rounded to. So what's the bottom line here: you can safely assume that statcheck will not flag you for rounding. It does its job as it's supposed to do. And that should be a comforting thought.  
+
+
+[^1]: Taking a cue from [Uri Simonsohn's](http://datacolada.org/) twitter, I asked [Michelle Nuitjen](https://mbnuijten.com/) for comments before posting. Not surprisingly, she agreed and confirmed that statcheck indeed rounds correctly.  

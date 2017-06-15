@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="I recently chatted with a colleague whose work was flagged on PubPeer by the statcheck bot that has been scraping the web last year or so. Her reaction - which I believe is pretty typical - was mild annoyance. To her (and I believe many others) it felt a bit pedantic to be flagged what was essentially a rounding error. She feared that such a flag may create a false impression that the work is a “false positive”, and that people jump to conclusions when they see a statcheck error.">
+
+<meta property="og:title" content="Rounding in the age of statcheck" />
+<meta property="og:description" content="I recently chatted with a colleague whose work was flagged on PubPeer by the statcheck bot that has been scraping the web last year or so. Her reaction - which I believe is pretty typical - was mild annoyance. To her (and I believe many others) it felt a bit pedantic to be flagged what was essentially a rounding error. She feared that such a flag may create a false impression that the work is a “false positive”, and that people jump to conclusions when they see a statcheck error." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/rounding-in-the-age-of-statcheck/" />
+
+
+
+<meta property="article:published_time" content="2017-06-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2017-06-05T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Rounding in the age of statcheck 
+
+</title>
+<link rel="canonical" href="/blog/rounding-in-the-age-of-statcheck/">
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="/css/reset.css?t=2017-06-15%2009%3a56%3a25.5870651%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/pygments.css?t=2017-06-15%2009%3a56%3a25.5870651%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/main.css?t=2017-06-15%2009%3a56%3a25.5870651%20-0400%20EDT">
+    
+        <link rel="stylesheet" href="/css/override.css?t=2017-06-15%2009%3a56%3a25.5870651%20-0400%20EDT">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="/"><img class="avatar" src="/img/profile.jpg" srcset="/img/profile.jpg 1x"></a>
+            
+            <a href="/"><div class="name">Felix Thoemmes</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-Blog"><a href="/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-Publications"><a href="/publications/"><span>Publications</span></a></li>
+                    
+                        <li class="nav-Teaching"><a href="/teaching/"><span>Teaching</span></a></li>
+                    
+                        <li class="nav-Open science"><a href="/open-science/"><span>Open Science</span></a></li>
+                    
+                        <li class="nav-Projects"><a href="/projects/"><span>Projects</span></a></li>
+                    
+                        <li class="nav-About"><a href="/about/"><span>About (CV)</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:felix.thoemmes@cornell.edu"><img class="icon" src="/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="/index.xml"><img class="icon" src="/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Rounding in the age of statcheck
+
+</div>
+
+                    <div class="initials"><a href="/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jun 5 2017 00:00:00 UTC'>Jun 5, 2017</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>I recently chatted with a colleague whose work was flagged on PubPeer by the statcheck bot that has been scraping the web last year or so. Her reaction - which I believe is pretty typical - was mild annoyance. To her (and I believe many others) it felt a bit pedantic to be flagged what was essentially a rounding error. She feared that such a flag may create a false impression that the work is a “false positive”, and that people jump to conclusions when they see a statcheck error.</p>
+<p>I won’t be writing about this aspect of statcheck though. My colleague did make one point that I thought was worth some investigation. She mentioned that she rounded both the reported t-value and the p-value, and that statcheck (when recomputing the p-value from the rounded t-value) would therefore make a mistake, and falsely label her results as incorrect. Let’s unpack this a bit…<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<div id="the-potential-problem-of-rounding" class="section level3">
+<h3>The potential problem of rounding</h3>
+<p>Assume you have obtained a t-value of 3.454 (with 15 degrees of freedom). Your computed p-value would be 0.0035 (which rounds to .004). But the t-value itself could be reported in a rounded format in the paper. You could report 3.454 (with three digits), 3.45 (round to two digits), or you could even report 3.5 (round to one digit, unusual, but not unseen). For the last two rounded values, statcheck would assume that the t-value is 3.450, and 3.500 (contrary to the fact that it is 3.454), and compute a p-value from those values. That recomputed p-value would then not match the reported one, and an error would be incorrectly flagged. Here is an example in a table.</p>
+<table>
+<thead>
+<tr class="header">
+<th>t</th>
+<th>p</th>
+<th>rounded t</th>
+<th>rounded p</th>
+<th>statcheck t</th>
+<th>statcheck p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>3.454</td>
+<td>0.0035</td>
+<td>3.45</td>
+<td>0.004</td>
+<td>3.450</td>
+<td>0.004</td>
+</tr>
+<tr class="even">
+<td>3.454</td>
+<td>0.0035</td>
+<td>3.5</td>
+<td>0.004</td>
+<td>3.500</td>
+<td>0.003</td>
+</tr>
+</tbody>
+</table>
+<p>Note the second column in which the researcher would correctly report .004, but statcheck would recompute .003, and thus flag an error.</p>
+</div>
+<div id="actually-statcheck-makes-no-such-error" class="section level3">
+<h3>Actually, statcheck makes no such error</h3>
+<p>After my colleague told me this argument, I went ahead and tested this in statcheck… <em>and it turns out it makes no such mistake</em>. I probed statcheck a little bit and then looked at the source code. Statcheck will report the p-value that it obtains from the rounded t-value (what other p-value could it report, really), and while it is also true that the reported and the recomputed p-value will be different, statcheck will only report an error when the difference between the two p-values is inconsistent with rounding based on the reported digits of the t-value. In other words, statcheck checks the accuracy with which you reported your t-value (i.e., the number of decimal places), and then it is smart enough to realize whether you made a rounding error, or whether any discrepancy is due to innocent rounding that is in line with whatever number of digits you rounded to. So what’s the bottom line here: you can safely assume that statcheck will not flag you for rounding. It does its job as it’s supposed to do. And that should be a comforting thought.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Taking a cue from <a href="http://datacolada.org/">Uri Simonsohn’s</a> twitter, I asked <a href="https://mbnuijten.com/">Michelle Nuitjen</a> for comments before posting. Not surprisingly, she agreed and confirmed that statcheck indeed rounds correctly.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+                <br>
+		<p><a href="/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'felixthoemmesblogdown';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99017619-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/R.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+    
+    
+
+
+
+
+</body>
+</html>
+

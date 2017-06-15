@@ -1,0 +1,153 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Rounding in the age of statcheck},
+            pdfauthor={Felix Thoemmes},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Rounding in the age of statcheck}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Felix Thoemmes}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2017-06-05}
+
+
+\begin{document}
+\maketitle
+
+I recently chatted with a colleague whose work was flagged on PubPeer by
+the statcheck bot that has been scraping the web last year or so. Her
+reaction - which I believe is pretty typical - was mild annoyance. To
+her (and I believe many others) it felt a bit pedantic to be flagged
+what was essentially a rounding error. She feared that such a flag may
+create a false impression that the work is a ``false positive'', and
+that people jump to conclusions when they see a statcheck error.
+
+I won't be writing about this aspect of statcheck though. My colleague
+did make one point that I thought was worth some investigation. She
+mentioned that she rounded both the reported t-value and the p-value,
+and that statcheck (when recomputing the p-value from the rounded
+t-value) would therefore make a mistake, and falsely label her results
+as incorrect. Let's unpack this a bit\ldots{}
+
+\subsubsection{The potential problem of
+rounding}\label{the-potential-problem-of-rounding}
+
+Assume you have obtained a t-value of 3.454 (with 15 degrees of
+freedom). Your computed p-value would be 0.0035 (which rounds to .004).
+But the t-value itself could be reported in a rounded format in the
+paper. You could report 3.454 (with three digits), 3.45 (round to two
+digits), or you could even report 3.5 (round to one digit, unusual, but
+not unseen). For the last two rounded values, statcheck would assume
+that the t-value is 3.450, and 3.500 (contrary to the fact that it is
+3.454), and compute a p-value from those values. That recomputed p-value
+would then not match the reported one, and an error would be incorrectly
+flagged. Here is an example in a table.
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule
+t & p & rounded t & rounded p & statcheck t & statcheck p\tabularnewline
+\midrule
+\endhead
+3.454 & 0.0035 & 3.45 & .004 & 3.450 & 0.004\tabularnewline
+3.454 & 0.0035 & 3.5 & .004 & 3.500 & 0.003\tabularnewline
+\bottomrule
+\end{longtable}
+
+Note the second column in which the researcher would correctly report
+.004, but statcheck would recompute .003, and thus flag an error.
+
+\subsubsection{Actually, statcheck makes no such
+error}\label{actually-statcheck-makes-no-such-error}
+
+After my colleague told me this argument, I went ahead and tested this
+in statcheck\ldots{} and it turns out it makes no such mistake. I probed
+statcheck a little bit and then looked at the sourcecode. Statchec will
+report the p-value that it obtains from the rounded t-value (what other
+p-value could it report, really), and while it is also true that the
+reported and the recomputed p-value will be different, statcheck will
+only report an error when the difference between the two p-values is
+inconsitent with rounding based on the reported digits of the t-value.
+In other words, statcheck checks the accuracy with which you reported
+your t-value (i.e., the number of decimal places), and then it is smart
+enough to realize whether you made a rounding error, or whether any
+discrepancy is due to innocent rounding that is in line with whatever
+number of digits you rounded to. So what's the bottom line here: you can
+safley assume that statcheck will not flag you for rounding. It does its
+job as it's supposed to do. And that should be a comforting thought.
+
+
+\end{document}
