@@ -6,10 +6,19 @@
     <description>Recent content on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 05 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Non-transitive dice</title>
+      <link>/blog/non-transitive-dice/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/non-transitive-dice/</guid>
+      <description>About ten years ago I bought myself a set of non-transitive dice. I have occasionally used them in class, but I am afraid that I am more excited about these dice than the average student. The main idea behind non-transitive dice is that out of a set of dice (and under repeated rolls), one die (A) will on average show a higher value than another die (B), and therefore beat it in a game in which the highest roll wins, but at the same time this winning die (A) will be dominated by another die (C), which itself loses to the loser of the first competition (B).</description>
+    </item>
     
     <item>
       <title>Rounding in the age of statcheck</title>
