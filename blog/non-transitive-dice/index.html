@@ -55,11 +55,11 @@
 
 
     
-    <link rel="stylesheet" href="/css/reset.css?t=2017-07-24%2016%3a37%3a01.4376163%20-0400%20EDT">
-    <link rel="stylesheet" href="/css/pygments.css?t=2017-07-24%2016%3a37%3a01.4376163%20-0400%20EDT">
-    <link rel="stylesheet" href="/css/main.css?t=2017-07-24%2016%3a37%3a01.4376163%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/reset.css?t=2017-07-27%2009%3a58%3a35.0998585%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/pygments.css?t=2017-07-27%2009%3a58%3a35.0998585%20-0400%20EDT">
+    <link rel="stylesheet" href="/css/main.css?t=2017-07-27%2009%3a58%3a35.0998585%20-0400%20EDT">
     
-        <link rel="stylesheet" href="/css/override.css?t=2017-07-24%2016%3a37%3a01.4376163%20-0400%20EDT">
+        <link rel="stylesheet" href="/css/override.css?t=2017-07-27%2009%3a58%3a35.0998585%20-0400%20EDT">
     
 
 
@@ -241,10 +241,10 @@ round(prop.table(table(res$gree)),2) %&gt;% tidy() %&gt;%
         axis.text.y = element_text(size=12)) 
 
 round(prop.table(table(res$red)),2) %&gt;% tidy() %&gt;%
-  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill=&quot;tomato3&quot;,alpha=.9) + ggtitle(&quot;Red\n&quot;) + 
+  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill=&quot;red2&quot;,alpha=.9) + ggtitle(&quot;Red\n&quot;) + 
   xlab(&quot;&quot;) + ylab(&quot;&quot;) +
   theme_economist_white() +
-  theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;tomato3&quot;,size=18),
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;red2&quot;,size=18),
         axis.text.y = element_text(size=12)) 
 
 
@@ -261,36 +261,36 @@ ggplot(aes(Var1, Var2)) +
 
 round(prop.table(table(res$blue,res$red)),2) %&gt;% tidy() %&gt;%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;tomato3&quot;,&quot;dodgerblue&quot;), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;red2&quot;,&quot;dodgerblue&quot;), show.legend=FALSE) +
   geom_text(aes(label = Freq), color=&quot;white&quot;) +
   scale_size(range = c(15,50)) + ggtitle(&quot;Blue vs. Red\n&quot;) + 
   xlab(&quot;&quot;) + ylab(&quot;&quot;) +
   theme_economist_white()+
   theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;dodgerblue&quot;,size=18),
-        axis.text.y = element_text(face=&quot;bold&quot;, color=&quot;tomato3&quot;,size=18)) 
+        axis.text.y = element_text(face=&quot;bold&quot;, color=&quot;red2&quot;,size=18)) 
 
 
 
 round(prop.table(table(res$red,res$green)),2) %&gt;% tidy() %&gt;%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;tomato3&quot;,&quot;tomato3&quot;,&quot;darkgreen&quot;,&quot;tomato3&quot;), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;red2&quot;,&quot;red2&quot;,&quot;darkgreen&quot;,&quot;red2&quot;), show.legend=FALSE) +
   geom_text(aes(label = Freq), color=&quot;white&quot;) +
   scale_size(range = c(15,50)) + ggtitle(&quot;Red vs. Green\n&quot;) + 
   xlab(&quot;&quot;) + ylab(&quot;&quot;) +
   theme_economist_white()+
-  theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;tomato3&quot;,size=18),
+  theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;red2&quot;,size=18),
         axis.text.y = element_text(face=&quot;bold&quot;, color=&quot;darkgreen&quot;,size=18)) 
 
 
 round(prop.table(table(res$red,res$green,res$blue)),2) %&gt;% tidy() %&gt;%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;dodgerblue&quot;,&quot;tomato3&quot;,&quot;darkgreen&quot;,&quot;tomato3&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c(&quot;dodgerblue&quot;,&quot;red2&quot;,&quot;darkgreen&quot;,&quot;red2&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;,&quot;dodgerblue&quot;), show.legend=FALSE) +
   geom_text(aes(label = Freq), color=&quot;white&quot;) +
   scale_size(range = c(15,50)) + ggtitle(&quot;Red vs. Green vs. Blue\n&quot;) + 
   xlab(&quot;&quot;) + ylab(&quot;&quot;) +
   theme_economist_white()+
   theme(axis.text.x = element_text(face=&quot;bold&quot;, color=&quot;darkgreen&quot;,size=18),
-        axis.text.y = element_text(face=&quot;bold&quot;, color=&quot;tomato&quot;,size=18)) +
+        axis.text.y = element_text(face=&quot;bold&quot;, color=&quot;red2&quot;,size=18)) +
   facet_wrap(~Var3) +
   theme(strip.text = element_text(color = &#39;dodgerblue&#39;,face=&quot;bold&quot;,size=18))</code></pre>
 </div>

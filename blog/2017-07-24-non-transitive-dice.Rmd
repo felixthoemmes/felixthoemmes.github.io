@@ -52,10 +52,10 @@ round(prop.table(table(res$gree)),2) %>% tidy() %>%
         axis.text.y = element_text(size=12))
 
 round(prop.table(table(res$red)),2) %>% tidy() %>%
-  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill="tomato3",alpha=.9) + ggtitle("Red\n") + 
+  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill="red2",alpha=.9) + ggtitle("Red\n") + 
   xlab("") + ylab("") +
   theme_economist_white() +
-  theme(axis.text.x = element_text(face="bold", color="tomato3",size=18),
+  theme(axis.text.x = element_text(face="bold", color="red2",size=18),
         axis.text.y = element_text(size=12))
 ```
 
@@ -99,13 +99,13 @@ library(tidyr)
 
 round(prop.table(table(res$blue,res$red)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","dodgerblue","tomato3","dodgerblue"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","dodgerblue","red2","dodgerblue"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Blue vs. Red\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
   theme(axis.text.x = element_text(face="bold", color="dodgerblue",size=18),
-        axis.text.y = element_text(face="bold", color="tomato3",size=18)) 
+        axis.text.y = element_text(face="bold", color="red2",size=18)) 
 
 ```
 
@@ -125,12 +125,12 @@ library(tidyr)
 
 round(prop.table(table(res$red,res$green)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("tomato3","tomato3","darkgreen","tomato3"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("red2","red2","darkgreen","red2"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Red vs. Green\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
-  theme(axis.text.x = element_text(face="bold", color="tomato3",size=18),
+  theme(axis.text.x = element_text(face="bold", color="red2",size=18),
         axis.text.y = element_text(face="bold", color="darkgreen",size=18)) 
 
 ```
@@ -149,13 +149,13 @@ library(tidyr)
 
 round(prop.table(table(res$red,res$green,res$blue)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","tomato3","darkgreen","tomato3","dodgerblue","dodgerblue","dodgerblue","dodgerblue"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","red2","red2","darkgreen","dodgerblue","dodgerblue","dodgerblue","dodgerblue"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Red vs. Green vs. Blue\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
   theme(axis.text.x = element_text(face="bold", color="darkgreen",size=18),
-        axis.text.y = element_text(face="bold", color="tomato",size=18)) +
+        axis.text.y = element_text(face="bold", color="red2",size=18)) +
   facet_wrap(~Var3) +
   theme(strip.text = element_text(color = 'dodgerblue',face="bold",size=18))
 
@@ -203,10 +203,10 @@ round(prop.table(table(res$gree)),2) %>% tidy() %>%
         axis.text.y = element_text(size=12)) 
 
 round(prop.table(table(res$red)),2) %>% tidy() %>%
-  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill="tomato3",alpha=.9) + ggtitle("Red\n") + 
+  ggplot() +  geom_bar(aes(weight=Freq, x=Var1),fill="red2",alpha=.9) + ggtitle("Red\n") + 
   xlab("") + ylab("") +
   theme_economist_white() +
-  theme(axis.text.x = element_text(face="bold", color="tomato3",size=18),
+  theme(axis.text.x = element_text(face="bold", color="red2",size=18),
         axis.text.y = element_text(size=12)) 
 
 
@@ -223,36 +223,36 @@ ggplot(aes(Var1, Var2)) +
 
 round(prop.table(table(res$blue,res$red)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","dodgerblue","tomato3","dodgerblue"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","dodgerblue","red2","dodgerblue"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Blue vs. Red\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
   theme(axis.text.x = element_text(face="bold", color="dodgerblue",size=18),
-        axis.text.y = element_text(face="bold", color="tomato3",size=18)) 
+        axis.text.y = element_text(face="bold", color="red2",size=18)) 
 
 
 
 round(prop.table(table(res$red,res$green)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("tomato3","tomato3","darkgreen","tomato3"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("red2","red2","darkgreen","red2"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Red vs. Green\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
-  theme(axis.text.x = element_text(face="bold", color="tomato3",size=18),
+  theme(axis.text.x = element_text(face="bold", color="red2",size=18),
         axis.text.y = element_text(face="bold", color="darkgreen",size=18)) 
 
 
 round(prop.table(table(res$red,res$green,res$blue)),2) %>% tidy() %>%
   ggplot(aes(Var1, Var2)) +
-  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","tomato3","darkgreen","tomato3","dodgerblue","dodgerblue","dodgerblue","dodgerblue"), show.legend=FALSE) +
+  geom_point(aes(size = Freq), alpha=0.9, color=c("dodgerblue","red2","darkgreen","red2","dodgerblue","dodgerblue","dodgerblue","dodgerblue"), show.legend=FALSE) +
   geom_text(aes(label = Freq), color="white") +
   scale_size(range = c(15,50)) + ggtitle("Red vs. Green vs. Blue\n") + 
   xlab("") + ylab("") +
   theme_economist_white()+
   theme(axis.text.x = element_text(face="bold", color="darkgreen",size=18),
-        axis.text.y = element_text(face="bold", color="tomato",size=18)) +
+        axis.text.y = element_text(face="bold", color="red2",size=18)) +
   facet_wrap(~Var3) +
   theme(strip.text = element_text(color = 'dodgerblue',face="bold",size=18))
 
