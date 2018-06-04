@@ -55,11 +55,11 @@
 
 
     
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-04%2016%3a12%3a29.7972714%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-04%2016%3a12%3a29.7972714%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-04%2016%3a12%3a29.7972714%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-04%2016%3a20%3a28.031839%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-04%2016%3a20%3a28.031839%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-04%2016%3a20%3a28.031839%20-0400%20EDT">
     
-        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-04%2016%3a12%3a29.7972714%20-0400%20EDT">
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-04%2016%3a20%3a28.031839%20-0400%20EDT">
     
 
 
@@ -195,39 +195,15 @@
 <p>You might argue that such blatant disregard for the randomization is rare, and I might agree. Further, if done with intention, you might think it is even unethical, and I’d agree even more. But if it were to happen, how would one know? The answer is, by checking the balance of the covariates at baseline. In a randomized experiment in which randomization was not compromised, we should not expect to see these types of imbalances often. They still can happen by chance - in fact, we know what this chance level is, a-priori. But in an experiment with compromised randomization we should expect to see these imbalances routinely - precisely on those variables that were used to determine treatment. For me, this implies that we should check balance on those covariates that we believe could have been used to improperly compromise the randomization. Hopefully, we have some expert knowledge of what those variables could be. In the example that I have given, initial weight at baseline seems like a good candidate.</p>
 <p>Let’s demonstrate the intuition that I outlined in the anecdote above quickly using a simulation. We consider again a randomized trial for a weight loss intervention. The outcome of interest is weight three month post-test. In our simulation we consider that there are 5 pre-test covariates (one of them initial weight). The covariates themselves are for simplicity uncorrelated, and they have varying relationships to the outcome (weight at post-test), ranging from positive (intital weight) to negative, including zero. In the proper randomized experiment, the treatment is determined by a fair coin flip. The effect of the treatment varies as a function of initial weight (individuals with low weight don’t benefit from the treatment at all, whereas individuals with higher weights, benefit from the treatment, but the average effect is a weight loss of 3000 grams (3kg). The effect modification is modeled via an interaction term between treatment and intital weight (the treatment is more effective by .2kg for every increase of 10kg in weight).</p>
 <p>To get an idea of what we would expect in a properly conducted randomized trial, we simulate 10,000 RCTs with a fixed sample size of 200, and proper randomization.</p>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;viridis&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Loading required package: viridisLite</code></pre>
-<pre><code>## Warning: package &#39;viridisLite&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 11 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_bar).</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <p>We see that the true treatment effect is (of course) recovered without bias.</p>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>We also see that on occasion pre-treatment weights are imbalanced. In a properly randomized experiment, that’s OK, as these imbalances are often offset by other imbalances over a wide range of potential covariates. They do not harm our inference, as explained by Senn (2013). Also as expected, using pre-test weight as a covariate also yields an unbiased estimator, and it increases precision.</p>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Let’s turn to the experiment in which randomization is compromised. We consider that randomization was compromised in the following manner: if participants were in the highest quartile of weight at pre-test, the probability for them to be assigned to the treatment condition changed from 50% (fair coin flip) to 90%. Likewise, the lowest quartile of weight had only a probabilty of 10% to be assigned to the treatment. This crudely models a behavior of somebody who is tweaking the randomization as to steer people who might benefit most from the treatment towards the treatment, but in order to maintain balance, steers other people who are less likely to benefit away from the treatment. We would expect that such a non-random assignment, would yield larger treatment effects at post-test.</p>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 54 rows containing non-finite values (stat_bin).</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_bar).</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>What we see here, is that the unadjusted treatment effect is now a biased estimator of the true treatment effect. The treatment effect is estimated to be way too high. Using pre-test weight as a covariate fixes this, as expected. But we are also seeing that pre-test weights are much more unbalanced, especially in comparison to the random imbalances that emerged under the proper randomization.</p>
-<pre class="r"><code>ggplot(res2,aes(x=preweightd)) + geom_histogram(color=&quot;white&quot;,fill=&quot;dodgerblue&quot;,alpha=.5) + theme_economist_white() + 
-  scale_x_continuous(name = &quot;Pre-test Weight&quot;,limits=c(0,12)) + geom_vline(xintercept = 0,col=&quot;darkred&quot;,size=1.5) + 
-  scale_y_continuous(name=&quot;&quot;, limits=c(0,1500))</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 505 rows containing non-finite values (stat_bin).</code></pre>
-<p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<pre class="r"><code>ggplot(res2,aes(x=adj)) + geom_histogram(color=&quot;white&quot;,fill=&quot;dodgerblue&quot;,alpha=.5) + theme_economist_white() + 
-  scale_x_continuous(name = &quot;Adjusted&quot;,limits=c(-6,0)) + geom_vline(xintercept = -3,col=&quot;darkred&quot;,size=1.5) + 
-  scale_y_continuous(name=&quot;&quot;, limits=c(0,1500))</code></pre>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_bar).</code></pre>
-<p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="https://felixthoemmes.github.io/blog/2018-06-04-balance-checks_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
 <p>None of this is really new - in fact these kind of simulations have been done many times before. I think the critical point is that when people say that covariate imbalances are not important, they are assuming properly conducted randomization. If this is in fact the case, then it is true that these imbalances are just Type I errors, random chance, and do not harm our inference. But if the randomization is compromised, then one possible way to spot this is to see unusual imbalances at pre-test. And that is why we should care about them.</p>
 <p>In the recent paper by Deaton and Cartwrith (<a href="http://www.nber.org/papers/w22595.pdf" class="uri">http://www.nber.org/papers/w22595.pdf</a>), the authors write: “These tests [and they are referring to balance tests of pre-treatment variables in randomized trials] are appropriate for unbiasedness if we are concerned that the random number generator might have failed, or if we are worried that the randomization is undermined by non-blinded subjects who systematically undermine the allocation.” I typically would put much faith in usual random number generators in R or other software, but depending on the particular trial, I would be more worried about undermining of the actual randomization.</p>
 <p>In summary, when you are conducting and reporting balance tests, you are testing whether your randomization was compromised by factors that are independent of the generation of the random numbers. By showing others that such compromised randomization did likely not happen, you increase the confidence that others can have in the results of your ranomized study.</p>

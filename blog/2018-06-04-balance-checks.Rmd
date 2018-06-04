@@ -33,7 +33,7 @@ To get an idea of what we would expect in a properly conducted randomized trial,
 200, and proper randomization. 
 
 
-```{r, echo=FALSE,cache=TRUE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(tidyr)
 library(ggplot2)
 library(viridis)
@@ -64,7 +64,7 @@ ggplot(res1,aes(x=unadj)) + geom_histogram(color="white",fill="dodgerblue",alpha
 
 We see that the true treatment effect is (of course) recovered without bias. 
 
-```{r, echo=FALSE,cache=TRUE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
   scale_x_continuous(name = "Pre-test Weight",limits=c(-6,6)) + geom_vline(xintercept = 0,col="darkred",size=1.5) + 
   scale_y_continuous(name="", limits=c(0,1500))
@@ -72,7 +72,7 @@ ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",
   
 We also see that on occasion pre-treatment weights  are imbalanced. In a properly randomized experiment, that's OK, as these imbalances are often offset by other imbalances over a wide range of potential covariates. They do not harm our inference, as explained by Senn (2013). Also as expected, using pre-test weight as a covariate also yields an unbiased estimator, and it increases precision. 
  
-```{r, echo=FALSE,cache=TRUE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
   scale_x_continuous(name = "Pre-test Weight",limits=c(-6,6)) + geom_vline(xintercept = 0,col="darkred",size=1.5) + 
   scale_y_continuous(name="", limits=c(0,1500))
@@ -80,7 +80,7 @@ ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",
  
  Let's turn to the experiment in which randomization is compromised. We consider that randomization was compromised in the following manner: if participants were in the highest quartile of weight at pre-test, the probability for them to be assigned to the treatment condition changed from 50% (fair coin flip) to 90%. Likewise, the lowest quartile of weight had only a probabilty of 10% to be assigned to the treatment. This crudely models a behavior of somebody who is tweaking the randomization as to steer people who might benefit most from the treatment towards the treatment, but in order to maintain balance, steers other people who are less likely to benefit away from the treatment. We would expect that such a non-random assignment, would yield larger treatment effects at post-test. 
 
-```{r, echo=FALSE,cache=TRUE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 badexp <- function() {
   preweight <- rnorm(200,80,10)
   cov2 <- rnorm(200,0,1)
@@ -108,7 +108,7 @@ ggplot(res2,aes(x=unadj)) + geom_histogram(color="white",fill="dodgerblue",alpha
 
 What we see here, is that the unadjusted treatment effect is now a biased estimator of the true treatment effect. The treatment effect is estimated to be way too high. Using pre-test weight as a covariate fixes this, as expected. But we are also seeing that pre-test weights are much more unbalanced, especially in comparison to the random imbalances that emerged under the proper randomization. 
 
-```{r}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 ggplot(res2,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
   scale_x_continuous(name = "Pre-test Weight",limits=c(0,12)) + geom_vline(xintercept = 0,col="darkred",size=1.5) + 
   scale_y_continuous(name="", limits=c(0,1500))
