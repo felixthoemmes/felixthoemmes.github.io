@@ -2,39 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Felix Thoemmes</title>
-    <link>/blog/</link>
+    <link>https://felixthoemmes.github.io/blog/</link>
     <description>Recent content in Blog on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://felixthoemmes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Balance checks</title>
+      <link>https://felixthoemmes.github.io/blog/balance-checks/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixthoemmes.github.io/blog/balance-checks/</guid>
+      <description>A recurring discussion on Twitter and other social media is whether one should or should not check baseline covariates for balance in a randomized experiment. The discussion comes in various flavors, sometimes focusing on whether the very act of balance checks are meaningful, or whether randomization actually is or is not expected to yield balance, and whether something should or should not be done about unbalanced covariates. Stephen Senn has written a paper on this called “Seven myths of randomisation in clinical trials” (http://onlinelibrary.</description>
+    </item>
+    
+    <item>
       <title>Non-transitive dice</title>
-      <link>/blog/non-transitive-dice/</link>
+      <link>https://felixthoemmes.github.io/blog/non-transitive-dice/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/non-transitive-dice/</guid>
+      <guid>https://felixthoemmes.github.io/blog/non-transitive-dice/</guid>
       <description>About ten years ago I bought myself a set of non-transitive dice. I have occasionally used them in class, but I am afraid that I am more excited about these dice than the average student. The main idea behind non-transitive dice is that out of a set of dice (and under repeated rolls), one die (A) will on average show a higher value than another die (B), and therefore beat it in a game in which the highest roll wins, but at the same time this winning die (A) will be dominated by another die (C), which itself loses to the loser of the first competition (B).</description>
     </item>
     
     <item>
       <title>Rounding in the age of statcheck</title>
-      <link>/blog/rounding-in-the-age-of-statcheck/</link>
+      <link>https://felixthoemmes.github.io/blog/rounding-in-the-age-of-statcheck/</link>
       <pubDate>Mon, 05 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/rounding-in-the-age-of-statcheck/</guid>
+      <guid>https://felixthoemmes.github.io/blog/rounding-in-the-age-of-statcheck/</guid>
       <description>I recently chatted with a colleague whose work was flagged on PubPeer by the statcheck bot that has been scraping the web last year or so. Her reaction - which I believe is pretty typical - was mild annoyance. To her (and I believe many others) it felt a bit pedantic to be flagged what was essentially a rounding error. She feared that such a flag may create a false impression that the work is a “false positive”, and that people jump to conclusions when they see a statcheck error.</description>
     </item>
     
     <item>
       <title>Keeping exploratory and confirmatory analyses strictly separate</title>
-      <link>/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</link>
+      <link>https://felixthoemmes.github.io/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</guid>
+      <guid>https://felixthoemmes.github.io/blog/keeping-exploratory-and-confirmatory-analyses-strictly-separate/</guid>
       <description>Recently Wang et al. published a paper in the Journal of Experimental Psychology on pre-registered analyses and the use of covariates in un-registered, exploratory, post-hoc analyses, specifically in the context of randomized experiments 1.
 I am in 100% agreement with the vast majority of what the authors have to say, and also with the general sentiment of the paper, which I summarize as follows:
 1.) Pre-register your analyses and report the results of your pre-registration fully</description>
@@ -42,10 +51,10 @@ I am in 100% agreement with the vast majority of what the authors have to say, a
     
     <item>
       <title>Hello World (blog roll)</title>
-      <link>/blog/hello-world-blog-roll/</link>
+      <link>https://felixthoemmes.github.io/blog/hello-world-blog-roll/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/hello-world-blog-roll/</guid>
+      <guid>https://felixthoemmes.github.io/blog/hello-world-blog-roll/</guid>
       <description>As Rich Lucas recently said, it seems somewhat anachronistic to start a blog in 2017, but here I am… doing it anyway.
 Well, I worry that starting a blog in 2017 is a bit like creating a myspace page in 2010, but here goes: https://t.co/12RevfumqL
 &amp;mdash; Rich Lucas (@rlucas11) May 2, 2017 The main reason why I started this blog was probably because I enjoy reading other blogs. So instead of doing the obligatory blog roll section, I will simply write about some blogs that I like.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hello on Felix Thoemmes</title>
-    <link>/tags/hello/</link>
+    <link>https://felixthoemmes.github.io/tags/hello/</link>
     <description>Recent content in Hello on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 12 May 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/hello/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://felixthoemmes.github.io/tags/hello/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hello World (blog roll)</title>
-      <link>/blog/hello-world-blog-roll/</link>
+      <link>https://felixthoemmes.github.io/blog/hello-world-blog-roll/</link>
       <pubDate>Fri, 12 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/blog/hello-world-blog-roll/</guid>
+      <guid>https://felixthoemmes.github.io/blog/hello-world-blog-roll/</guid>
       <description>As Rich Lucas recently said, it seems somewhat anachronistic to start a blog in 2017, but here I am… doing it anyway.
 Well, I worry that starting a blog in 2017 is a bit like creating a myspace page in 2010, but here goes: https://t.co/12RevfumqL
 &amp;mdash; Rich Lucas (@rlucas11) May 2, 2017 The main reason why I started this blog was probably because I enjoy reading other blogs. So instead of doing the obligatory blog roll section, I will simply write about some blogs that I like.</description>

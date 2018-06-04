@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fixed on Felix Thoemmes</title>
-    <link>/fixed/</link>
+    <link>https://felixthoemmes.github.io/fixed/</link>
     <description>Recent content in Fixed on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 22 Aug 2015 06:42:21 -0700</lastBuildDate>
     
-	<atom:link href="/fixed/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://felixthoemmes.github.io/fixed/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>About</title>
-      <link>/about/</link>
+      <link>https://felixthoemmes.github.io/about/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/about/</guid>
+      <guid>https://felixthoemmes.github.io/about/</guid>
       <description>Academic Biosketch Felix Thoemmes is an assistant professor in the department of Human Development, with joint appointment in the Department of Psychology, at Cornell University. His research interests are causal inference, especially using structural equation models, or propensity scores, missing data, and open science. Before coming to Cornell, he was an assistant professor at Texas A&amp;amp;M University, and the University of Tubingen, Germany.
 A current CV can be downloaded here.</description>
     </item>
     
     <item>
       <title>Open Science</title>
-      <link>/open-science/</link>
+      <link>https://felixthoemmes.github.io/open-science/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/open-science/</guid>
+      <guid>https://felixthoemmes.github.io/open-science/</guid>
       <description>I subscribe to principles of open science and reproducible research. I have signed the commitment to research transparency, originally developed by Felix Schönbrodt. I encourage you to read the twelve points of this commitment, but in brief, signatories try to provide raw data, and reproducible computer code, with every submitted manuscript, and ask for both of these from other authors whose work they are reviewing.   I am also a signatory of the Peer Reviewers&amp;rsquo; Openness Initiative, originally developed by Richard Morey, and others.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>/projects/</link>
+      <link>https://felixthoemmes.github.io/projects/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/projects/</guid>
+      <guid>https://felixthoemmes.github.io/projects/</guid>
       <description>Regression-discontinuity designs In 2014 I was funded by the Institute for Education Sciences (IES) to develop a user-friendly software for educational researchers to perform the analysis of a regression-discontinuity design (RDD). There are already several R packages available that perform these analyses, but we wanted to also provide a graphical user interface, and also add new features. We chose R Shiny to program our graphical interface, and we have added some functionality that is not covered by existing R packages.</description>
     </item>
     
     <item>
       <title>Publications</title>
-      <link>/publications/</link>
+      <link>https://felixthoemmes.github.io/publications/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/publications/</guid>
+      <guid>https://felixthoemmes.github.io/publications/</guid>
       <description>Peer-reviewed 2017 Thoemmes, F., Rosseel, Y., &amp;amp; Textor, J. (in press). Local Testing of Structural Equation Models. Psychological Methods.
 2016 Coman, E., Thoemmes, F., &amp;amp; Fifield, J. Commentary: Muthèn, B., &amp;amp; Asparouhov, T. (2016). Causal effects in mediation modeling: An introduction with applications to latent variables. Structural Equation Modeling: A Multidisciplinary Journal, 22(1), 12-23. (in press). Frontiers in Psychology, Section Quantitative Psychology and Measurement.
 Thoemmes, F., Liao, W., &amp;amp; Jin, Z.</description>
@@ -52,10 +52,10 @@ Thoemmes, F., Liao, W., &amp;amp; Jin, Z.</description>
     
     <item>
       <title>Teaching</title>
-      <link>/teaching/</link>
+      <link>https://felixthoemmes.github.io/teaching/</link>
       <pubDate>Sat, 22 Aug 2015 06:42:21 -0700</pubDate>
       
-      <guid>/teaching/</guid>
+      <guid>https://felixthoemmes.github.io/teaching/</guid>
       <description>I offer Quantitative Methods (QM) 1, and 2, on a regular basis, and QM 3 on a somehwat irregular basis. All courses are cross-listed between Human Development and Psychology, and are open to graduate students and advanced undergraduate students. In the past I also taught Introduction to Research Methods for undergraduates. Each semester, I offer a reading group (together with my colleague Anthony Ong) that is focused on methods. It is called MSG (Methods Study Group).</description>
     </item>
     
