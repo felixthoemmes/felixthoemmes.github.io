@@ -55,11 +55,11 @@
 
 
     
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-04%2016%3a20%3a28.0328391%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-04%2016%3a20%3a28.0328391%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-04%2016%3a20%3a28.0328391%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-05%2009%3a41%3a29.1774809%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-05%2009%3a41%3a29.1774809%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-05%2009%3a41%3a29.1774809%20-0400%20EDT">
     
-        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-04%2016%3a20%3a28.0328391%20-0400%20EDT">
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-05%2009%3a41%3a29.1774809%20-0400%20EDT">
     
 
 
@@ -195,15 +195,12 @@
 <p><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-1-1.png" width="672" /><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-1-2.png" width="672" /><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
 <p>For something simple like this, we didn’t really need to simulate. We can easily see that the e.g., the blue die will have probabilities of <span class="math inline">\(5/6\)</span> and <span class="math inline">\(1/6\)</span> to come up 3, or 6, respectively.</p>
 <p>The interesting part now becomes when we consider two dices thrown at the same time. Let’s consider first the blue and the green one. There are only four possible outcomes, the blue one comes up 3, and the green up comes up either 1 or 4, or the blue one comes up 6, and the green one comes up again either 1 or 4. Each of these joint probabilities can be derived easily, because the throws of the different dice are independent. For example, the probability of blue being 3 and green being 4 is <span class="math inline">\(5/6^2\)</span>, so approximately 69%. The plot below shows probabilties of the four possible outcomes, and also color-codes the winner of each constellation. We can clearly see that the green die has a tremendous edge over the blue one. So if faced with the choice of either picking the blue or the green die, you would want to go with the green one.</p>
-<pre><code>## Warning: package &#39;broom&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;ggthemes&#39; was built under R version 3.4.4</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.4.4</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>But how does the (previously) losing blue die fare against the red? Let’s repeat this exercise, and have a look at the plot below. Now we find that the blue one has a slight edge against the red one. It’s not as extreme as in the previous case, but it’s there, and in the long run, you would win with the blue die over the red one. At this point we may think that the green die is the best, followed by the blue, and the red one is the worst.</p>
 <p><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>But let’s compare how the red one does against the green one (that previously defeated the blue one). It turns out that the red one now has a slight edge against the green one. The edge is as big as in the previous case, but smaller than in the first scenario. And there we have it, the non-transitive nature of the three dices. If somebody wanted to play a game of dice with you in which the highest number wins, and you would have to pick a die first, you would ultimately always lose, because whatever die you pick, your opponent can pick one that will beat it in the long run.</p>
 <p><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<p>Finally, let’s consider a different type of game. Instead of two players, we have three players, who all roll their die at the same time, and the highest roll wins. We now need to consider three (independent) evens happening. For example, the green die coming up 5 (<span class="math inline">\(1/2\)</span>), the red one coming up 1 (<span class="math inline">\(1/6\)</span>), and the blue one coming up 6 (<span class="math inline">\(1/6\)</span>). The joint probability of this happening is just the product of all three probabilities, which in this case is about 1%. If we do this for all possible 8 outcomes, we get the following plot.</p>
+<p>Finally, let’s consider a different type of game. Instead of two players, we have three players, who all roll their die at the same time, and the highest roll wins. We now need to consider three (independent) events happening. For example, the green die coming up 5 (<span class="math inline">\(1/2\)</span>), the red one coming up 1 (<span class="math inline">\(1/6\)</span>), and the blue one coming up 6 (<span class="math inline">\(1/6\)</span>). The joint probability of this happening is just the product of all three probabilities, which in this case is about 1%. If we do this for all possible 8 outcomes, we get the following plot.</p>
 <p><img src="https://felixthoemmes.github.io/blog/2017-07-24-non-transitive-dice_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>And here we see that the red die is in fact the best of all three dice with an average probability of winning of around 42%. Compared with the blue one which has a dismal 23%, and the green one with 35%. In the game with two players, it pays to be the last to pick a die, but in the game with three players, it’s beneficial to be the first to pick - in this case pick the red one.</p>
 <div id="r-code-to-replicate-results-and-graphs" class="section level3">

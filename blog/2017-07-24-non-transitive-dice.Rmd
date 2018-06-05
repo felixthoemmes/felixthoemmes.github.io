@@ -15,7 +15,7 @@ About ten years ago I bought myself a set of [non-transitive dice](https://en.wi
 This particular set of dice has a blue, green, and red die. The blue one has all 3s on it, and one 6. The red one is all 4s, but has one 1, and the green one is an even mix of 2s and 5s. They all have the exact same expected value, which is 3.5. Rolling them in R (code at the end of this post) a couple of thousands of times results in the following, obvious distributions for each die.
 
 
-```{r, echo=FALSE,cache=TRUE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(plyr)
 library(broom)
 library(ggplot2)
@@ -64,7 +64,7 @@ For something simple like this, we didn't really need to simulate. We can easily
 The interesting part now becomes when we consider two dices thrown at the same time. Let's consider first the blue and the green one. There are only four possible outcomes, the blue one comes up 3, and the green up comes up either 1 or 4, or the blue one comes up 6, and the green one comes up again either 1 or 4. Each of these joint probabilities can be derived easily, because the throws of the different dice are independent. For example, the probability of blue being 3 and green being 4 is $5/6^2$, so approximately 69%. The plot below shows probabilties of the four possible outcomes, and also color-codes the winner of each constellation. We can clearly see that the green die has a tremendous edge over the blue one. So if faced with the choice of either picking the blue or the green die, you would want to go with the green one. 
 
 
-```{r,echo=FALSE,message=FALSE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(plyr)
 library(broom)
 library(ggplot2)
@@ -88,7 +88,7 @@ ggplot(aes(Var1, Var2)) +
 But how does the (previously) losing blue die fare against the red? Let's repeat this exercise, and have a look at the plot below. Now we find that the blue one has a slight edge against the red one. It's not as extreme as in the previous case, but it's there, and in the long run, you would win with the blue die over the red one. At this point we may think that the green die is the best, followed by the blue, and the red one is the worst.
 
 
-```{r,echo=FALSE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(plyr)
 library(broom)
 library(ggplot2)
@@ -114,7 +114,7 @@ But let's compare how the red one does against the green one (that previously de
 
 
 
-```{r,echo=FALSE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(plyr)
 library(broom)
 library(ggplot2)
@@ -136,9 +136,9 @@ round(prop.table(table(res$red,res$green)),2) %>% tidy() %>%
 ```
 
 
-Finally, let's consider a different type of game. Instead of two players, we have three players, who all roll their die at the same time, and the highest roll wins. We now need to consider three (independent) evens happening. For example, the green die coming up 5 ($1/2$), the red one coming up 1 ($1/6$), and the blue one coming up 6 ($1/6$). The joint probability of this happening is just the product of all three probabilities, which in this case is about 1%. If we do this for all possible 8 outcomes, we get the following plot. 
+Finally, let's consider a different type of game. Instead of two players, we have three players, who all roll their die at the same time, and the highest roll wins. We now need to consider three (independent) events happening. For example, the green die coming up 5 ($1/2$), the red one coming up 1 ($1/6$), and the blue one coming up 6 ($1/6$). The joint probability of this happening is just the product of all three probabilities, which in this case is about 1%. If we do this for all possible 8 outcomes, we get the following plot. 
 
-```{r,echo=FALSE}
+```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
 library(plyr)
 library(broom)
 library(ggplot2)

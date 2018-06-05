@@ -73,8 +73,8 @@ ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",
 We also see that on occasion pre-treatment weights  are imbalanced. In a properly randomized experiment, that's OK, as these imbalances are often offset by other imbalances over a wide range of potential covariates. They do not harm our inference, as explained by Senn (2013). Also as expected, using pre-test weight as a covariate also yields an unbiased estimator, and it increases precision. 
  
 ```{r, echo=FALSE,cache=TRUE, warning=FALSE, message=FALSE}
-ggplot(res1,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
-  scale_x_continuous(name = "Pre-test Weight",limits=c(-6,6)) + geom_vline(xintercept = 0,col="darkred",size=1.5) + 
+ggplot(res1,aes(x=adj)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
+  scale_x_continuous(name = "Adjusted",limits=c(-6,0)) + geom_vline(xintercept = -3,col="darkred",size=1.5) + 
   scale_y_continuous(name="", limits=c(0,1500))
 ```
  
@@ -116,7 +116,6 @@ ggplot(res2,aes(x=preweightd)) + geom_histogram(color="white",fill="dodgerblue",
 ggplot(res2,aes(x=adj)) + geom_histogram(color="white",fill="dodgerblue",alpha=.5) + theme_economist_white() + 
   scale_x_continuous(name = "Adjusted",limits=c(-6,0)) + geom_vline(xintercept = -3,col="darkred",size=1.5) + 
   scale_y_continuous(name="", limits=c(0,1500))
-
 ```
 
 None of this is really new - in fact these kind of simulations have been done many times before. I think the critical point is that when people say that covariate imbalances are not important, they are assuming properly conducted randomization. If this is in fact the case, then it is true that these imbalances are just Type I errors, random chance, and do not harm our inference. But if the randomization is compromised, then one possible way to spot this is to see unusual imbalances at pre-test. And that is why we should care about them. 
