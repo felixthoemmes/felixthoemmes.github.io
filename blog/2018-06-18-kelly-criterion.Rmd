@@ -63,7 +63,7 @@ Below I am showing a linegraph that shows how the intial bankroll of $100 develo
 I will update this blog as the world cup progresses. 
 
 
-```{r, message=FALSE,warning=FALSE}
+```{r, message=FALSE,warning=FALSE, echo=FALSE}
 wcb <- read_xlsx("C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx")
 wcb <- wcb %>% mutate(posneg = factor(ifelse(wcb$`Total net`<0,"negative","positive"))) %>%  select(ID,Title,"Total net","Total stake",Bankrollkellyplot,posneg) %>% slice(1:13)
 

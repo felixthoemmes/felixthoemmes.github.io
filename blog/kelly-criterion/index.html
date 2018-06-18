@@ -57,11 +57,11 @@ So here is what I did: for each game, I pulled the winning probabilities from fi
 
 
     
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-18%2014%3a26%3a58.3113057%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-18%2014%3a26%3a58.3113057%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-18%2014%3a26%3a58.3113057%20-0400%20EDT">
     
-        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-18%2014%3a26%3a58.3113057%20-0400%20EDT">
     
 
 
@@ -195,12 +195,6 @@ So here is what I did: for each game, I pulled the winning probabilities from fi
 <p>An interesting observation with respect to the World Cup games was that for many matches the Kelly criterion suggested not betting at all, especially not betting on the stronger team. This indicated that the offered odds from bookies generally tended to overestimate the winning probability (or maybe 538 underestimated the performance of strong teams). I should also add that I did not use the generalized Kelly criterion to distinguish the best bet between either team winning or a draw. I simply (and incorrectly) computed the Kelly bet for each outcome separately, and thus on occasion ended up with two outcomes that received a wager.</p>
 <p>Below I am showing a linegraph that shows how the intial bankroll of $100 developed after each game. The y-axis shows relative bankroll (that means it simply tallies wins and losses). The bars at the bottom of the graph show how much was won or lost in each bet, and the size of the point indicates the amount of total stake that was wagered on each game. As an example, when Sweden and South Korea were playing, the Kelly criterion suggested a somewhat large bet on Sweden, which paid off, as indicated as the big green bar. On the other hand, in the game Brazil vs Switzerland, the Kelly criterion suggest moderate bets on Switzerland, and on a draw. The bet on Switzerland was lost, but the bet on the draw was won, resulting in a net win for this game.</p>
 <p>I will update this blog as the world cup progresses.</p>
-<pre class="r"><code>wcb &lt;- read_xlsx(&quot;C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx&quot;)
-wcb &lt;- wcb %&gt;% mutate(posneg = factor(ifelse(wcb$`Total net`&lt;0,&quot;negative&quot;,&quot;positive&quot;))) %&gt;%  select(ID,Title,&quot;Total net&quot;,&quot;Total stake&quot;,Bankrollkellyplot,posneg) %&gt;% slice(1:13)
-
-wcb$Title &lt;- reorder(factor(wcb$Title),wcb$ID)
-
-ggplot(wcb,aes(x=Title,y=Bankrollkellyplot-100)) + geom_point(aes(size=`Total stake`)) + geom_line(group=1) + theme(axis.text.x = element_text(angle=45,margin=margin(t=0,r=0,b=0,l=0),hjust=1)) +  geom_bar(data=wcb,aes(x=Title,y=`Total net`,fill=posneg),stat=&quot;identity&quot;,alpha=.2,width=.2) + scale_fill_manual(values=c(&quot;negative&quot;=&quot;firebrick&quot;,&quot;positive&quot;=&quot;darkgreen&quot;)) + ylab(&quot;Relative bankroll&quot;) +theme(axis.title.x=element_blank()) + guides(fill=FALSE,size=FALSE)</code></pre>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-18-kelly-criterion_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div id="r-code-to-replicate-results-and-graphs" class="section level3">
 <h3>R code to replicate results and graphs</h3>
