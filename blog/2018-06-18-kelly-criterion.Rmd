@@ -1,0 +1,126 @@
+---
+title: Kelly criterion
+author: "Felix Thoemmes"
+date: '2018-06-18'
+output: pdf_document
+slug: ''
+tags: world cup
+categories: statistics
+---
+
+I enjoyed looking at the probabilistic model of world cup matches over at [fivethirtyeight](https://projects.fivethirtyeight.com/2018-world-cup-predictions/matches/) and was wondering how one would fare in terms of sports betting using the predictions from Nate Silver and Jay Boice. As a disclaimer: I did not bet any money at all, all of the below is purely theoretical.
+
+So here is what I did: for each game, I pulled the winning probabilities from fivethirtyeight and the corresponding odds from online bookmakers. Since bookmakers constantly update their odds (in order to have an edge over bettors), I always pulled both probabilties and odds, the night before the match. With that in hand, I simulated the following betting strategy. The bettor start with a bankroll of $100 and then bets according to the [Kelly criterion](https://en.wikipedia.org/wiki/Kelly_criterion) for each bet. 
+
+The Kelly criterion is a method to determine how much one should wager on a bet, given assumed winning probabilities, and offered odds. Kelly betting maximizes logarithmic utility. Below is a graphic display showing the Kelly criterion. On the x-axis are the probabilties that you assume an event is going to take place, and on the y-axis are the offered odds (these odds can be translated into implied probabilites of the bookie). The shading for each part of the graph shows what percentage of your current bankroll you should bet. As an example, if you believe the probability of an event to happen is close to 100% (right side of the graph), then you typically end up betting a lot (or all) of your bankroll (the yellow region of the graph). For events in which the implied probabilties of the bookie are larger than your own, you end up not betting at all - notice that this area is quite large in the graph. 
+
+
+```{r, echo=FALSE,warning=FALSE,message=FALSE}
+library(ggplot2)
+library(viridis)
+library(ggthemes)
+library(readxl)
+library(dplyr)
+library(magrittr)
+
+prob <- seq(0,1,.005)
+odds <- seq(1,20,.01)
+
+grid <- expand.grid(prob=prob,odds=odds)
+
+grid$kelley <- ((grid$odds*grid$prob)-1) / (grid$odds-1)
+grid$kelley[grid$kelley<0] <- 0
+
+ggplot(grid, aes(prob, odds, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = "Assumed probability",  y= "Offered odds\n") +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title="Bet")) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+
+
+
+assumedprob <- seq(0,1,.005)
+
+grid2 <- expand.grid(prob=prob,aprob=assumedprob)
+
+grid2$kelley <- (((1/grid2$aprob)*grid2$prob)-1) / ((1/grid2$aprob)-1)
+grid2$kelley[grid2$kelley<0] <- 0
+
+
+ggplot(grid2, aes(prob, aprob, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = "Assumed probability",  y= "Offered probability\n") +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title="Bet")) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                          panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+
+```
+
+
+An interesting observation with respect to the World Cup games was that for many matches the Kelly criterion suggested not betting at all, especially not betting on the stronger team. This indicated that the offered odds from bookies generally tended to overestimate the winning probability (or maybe 538 underestimated the performance of strong teams). I should also add that I did not use the generalized Kelly criterion to distinguish the best bet between either team winning or a draw. I simply (and incorrectly) computed the Kelly bet for each outcome separately, and thus on occasion ended up with two outcomes that received a wager. 
+
+Below I am showing a linegraph that shows how the intial bankroll of $100 developed after each game. The y-axis shows relative bankroll (that means it simply tallies wins and losses). The bars at the bottom of the graph show how much was won or lost in each bet, and the size of the point indicates the amount of total stake that was wagered on each game. As an example, when Sweden and South Korea were playing, the Kelly criterion suggested a somewhat large bet on Sweden, which paid off, as indicated as the big green bar. On the other hand, in the game Brazil vs Switzerland, the Kelly criterion suggest moderate bets on Switzerland, and on a draw. The bet on Switzerland was lost, but the bet on the draw was won, resulting in a net win for this game. 
+
+I will update this blog as the world cup progresses. 
+
+
+```{r, message=FALSE,warning=FALSE}
+wcb <- read_xlsx("C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx")
+wcb <- wcb %>% mutate(posneg = factor(ifelse(wcb$`Total net`<0,"negative","positive"))) %>%  select(ID,Title,"Total net","Total stake",Bankrollkellyplot,posneg) %>% slice(1:13)
+
+wcb$Title <- reorder(factor(wcb$Title),wcb$ID)
+
+ggplot(wcb,aes(x=Title,y=Bankrollkellyplot-100)) + geom_point(aes(size=`Total stake`)) + geom_line(group=1) + theme(axis.text.x = element_text(angle=45,margin=margin(t=0,r=0,b=0,l=0),hjust=1)) +  geom_bar(data=wcb,aes(x=Title,y=`Total net`,fill=posneg),stat="identity",alpha=.2,width=.2) + scale_fill_manual(values=c("negative"="firebrick","positive"="darkgreen")) + ylab("Relative bankroll") +theme(axis.title.x=element_blank()) + guides(fill=FALSE,size=FALSE)
+```
+
+
+
+###R code to replicate results and graphs
+```{r, echo=TRUE,eval=FALSE}
+library(ggplot2)
+library(viridis)
+library(ggthemes)
+library(readxl)
+library(dplyr)
+library(magrittr)
+
+prob <- seq(0,1,.005)
+odds <- seq(1,20,.01)
+
+grid <- expand.grid(prob=prob,odds=odds)
+
+grid$kelley <- ((grid$odds*grid$prob)-1) / (grid$odds-1)
+grid$kelley[grid$kelley<0] <- 0
+
+ggplot(grid, aes(prob, odds, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = "Assumed probability",  y= "Offered odds\n") +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title="Bet")) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+
+
+
+assumedprob <- seq(0,1,.005)
+
+grid2 <- expand.grid(prob=prob,aprob=assumedprob)
+
+grid2$kelley <- (((1/grid2$aprob)*grid2$prob)-1) / ((1/grid2$aprob)-1)
+grid2$kelley[grid2$kelley<0] <- 0
+
+
+ggplot(grid2, aes(prob, aprob, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = "Assumed probability",  y= "Offered probability\n") +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title="Bet")) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                          panel.grid.minor = element_blank(), axis.line = element_line(colour = "black"))
+
+
+
+#Data will be put on github, but only local for now
+wcb <- read_xlsx("C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx")
+wcb <- wcb %>% mutate(posneg = factor(ifelse(wcb$`Total net`<0,"negative","positive"))) %>%  select(ID,Title,"Total net","Total stake",Bankrollkellyplot,posneg) %>% slice(1:13)
+
+wcb$Title <- reorder(factor(wcb$Title),wcb$ID)
+
+ggplot(wcb,aes(x=Title,y=Bankrollkellyplot-100)) + geom_point(aes(size=`Total stake`)) + geom_line(group=1) + theme(axis.text.x = element_text(angle=45,margin=margin(t=0,r=0,b=0,l=0),hjust=1)) +  geom_bar(data=wcb,aes(x=Title,y=`Total net`,fill=posneg),stat="identity",alpha=.2,width=.2) + scale_fill_manual(values=c("negative"="firebrick","positive"="darkgreen")) + ylab("Relative bankroll") +theme(axis.title.x=element_blank()) + guides(fill=FALSE,size=FALSE)
+
+```

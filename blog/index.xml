@@ -6,10 +6,20 @@
     <description>Recent content in Blog on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://felixthoemmes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kelly criterion</title>
+      <link>https://felixthoemmes.github.io/blog/kelly-criterion/</link>
+      <pubDate>Mon, 18 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixthoemmes.github.io/blog/kelly-criterion/</guid>
+      <description>I enjoyed looking at the probabilistic model of world cup matches over at fivethirtyeight and was wondering how one would fare in terms of sports betting using the predictions from Nate Silver and Jay Boice. As a disclaimer: I did not bet any money at all, all of the below is purely theoretical.
+So here is what I did: for each game, I pulled the winning probabilities from fivethirtyeight and the corresponding odds from online bookmakers.</description>
+    </item>
     
     <item>
       <title>Balance checks</title>

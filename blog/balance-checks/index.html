@@ -55,11 +55,11 @@
 
 
     
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-05%2009%3a41%3a29.1764808%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-05%2009%3a41%3a29.1764808%20-0400%20EDT">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-05%2009%3a41%3a29.1764808%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
     
-        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-05%2009%3a41%3a29.1764808%20-0400%20EDT">
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
     
 
 
@@ -207,6 +207,7 @@
 <p>None of this is really new - in fact these kind of simulations have been done many times before. I think the critical point is that when people say that covariate imbalances are not important, they are assuming properly conducted randomization. If this is in fact the case, then it is true that these imbalances are just Type I errors, random chance, and do not harm our inference. But if the randomization is compromised, then one possible way to spot this is to see unusual imbalances at pre-test. And that is why we should care about them.</p>
 <p>In the recent paper by Deaton and Cartwrith (<a href="http://www.nber.org/papers/w22595.pdf" class="uri">http://www.nber.org/papers/w22595.pdf</a>), the authors write: “These tests [and they are referring to balance tests of pre-treatment variables in randomized trials] are appropriate for unbiasedness if we are concerned that the random number generator might have failed, or if we are worried that the randomization is undermined by non-blinded subjects who systematically undermine the allocation.” I typically would put much faith in usual random number generators in R or other software, but depending on the particular trial, I would be more worried about undermining of the actual randomization.</p>
 <p>In summary, when you are conducting and reporting balance tests, you are testing whether your randomization was compromised by factors that are independent of the generation of the random numbers. By showing others that such compromised randomization did likely not happen, you increase the confidence that others can have in the results of your ranomized study.</p>
+<p><em>UPDATE (6/13/18):</em> The blog post triggered interesting discussions with Tim van der Zee, Frank Harrell, and Jeffrey Blume. Tim, and Frank objected, saying that an observed imbalance could only with great difficulty be categorized as either emerging from random imbalance, or due to cheating (compromised randomization). They expressed concerns that post-hoc balance checking and adjustment can lead to irreproducible results. One point of agreement is that it is preferable to also have procedural information about the randomization. Imbalance in addition to procedural information that suggests possible cheating makes for a much stronger case than only seeing imbalance. Another strong point of agreement with Frank is that, I too, endorse defining important covariates a-priori (essentially pre-register which covariates you think are important to be balanced). Jeffrey Blume suggested that imbalances should not be ignored post-randomization, and referred to doing this as “randomize, and close your eyes”. I discussed this further with some colleagues over in econ, and would like to highlight one point that they made: when we evaluate randomization in simulations studies (like I did in the blog post), we tend to forget that in the real world, randomization is a process that is typically (at some stage of the experiment) executed by humans. Humans are fallible, and therefore randomization is too. We should (and can) design randomization studies so that we minimize the chance that the randomization procedure is compromised. If we don’t design them this way, and suspect cheating, we can check balance.</p>
 <div id="r-code-to-replicate-results-and-graphs" class="section level3">
 <h3>R code to replicate results and graphs</h3>
 <pre class="r"><code>#true experiment

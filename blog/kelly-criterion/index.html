@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="I enjoyed looking at the probabilistic model of world cup matches over at fivethirtyeight and was wondering how one would fare in terms of sports betting using the predictions from Nate Silver and Jay Boice. As a disclaimer: I did not bet any money at all, all of the below is purely theoretical.
+So here is what I did: for each game, I pulled the winning probabilities from fivethirtyeight and the corresponding odds from online bookmakers.">
+
+<meta property="og:title" content="Kelly criterion" />
+<meta property="og:description" content="I enjoyed looking at the probabilistic model of world cup matches over at fivethirtyeight and was wondering how one would fare in terms of sports betting using the predictions from Nate Silver and Jay Boice. As a disclaimer: I did not bet any money at all, all of the below is purely theoretical.
+So here is what I did: for each game, I pulled the winning probabilities from fivethirtyeight and the corresponding odds from online bookmakers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://felixthoemmes.github.io/blog/kelly-criterion/" />
+
+
+
+<meta property="article:published_time" content="2018-06-18T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-06-18T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     Kelly criterion 
+
+</title>
+<link rel="canonical" href="https://felixthoemmes.github.io/blog/kelly-criterion/">
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-18%2013%3a51%3a47.2619372%20-0400%20EDT">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://felixthoemmes.github.io/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://felixthoemmes.github.io/"><img class="avatar" src="https://felixthoemmes.github.io/img/profile.jpg" srcset="https://felixthoemmes.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://felixthoemmes.github.io/"><div class="name">Felix Thoemmes</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-Blog"><a href="https://felixthoemmes.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-Publications"><a href="https://felixthoemmes.github.io/publications/"><span>Publications</span></a></li>
+                    
+                        <li class="nav-Teaching"><a href="https://felixthoemmes.github.io/teaching/"><span>Teaching</span></a></li>
+                    
+                        <li class="nav-Open science"><a href="https://felixthoemmes.github.io/open-science/"><span>Open Science</span></a></li>
+                    
+                        <li class="nav-Projects"><a href="https://felixthoemmes.github.io/projects/"><span>Projects</span></a></li>
+                    
+                        <li class="nav-About"><a href="https://felixthoemmes.github.io/about/"><span>About (CV)</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="https://felixthoemmes.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="https://felixthoemmes.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:felix.thoemmes@cornell.edu"><img class="icon" src="https://felixthoemmes.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://felixthoemmes.github.io/index.xml"><img class="icon" src="https://felixthoemmes.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Kelly criterion
+
+</div>
+
+                    <div class="initials"><a href="https://felixthoemmes.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Mon Jun 18 2018 00:00:00 UTC'>Jun 18, 2018</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>I enjoyed looking at the probabilistic model of world cup matches over at <a href="https://projects.fivethirtyeight.com/2018-world-cup-predictions/matches/">fivethirtyeight</a> and was wondering how one would fare in terms of sports betting using the predictions from Nate Silver and Jay Boice. As a disclaimer: I did not bet any money at all, all of the below is purely theoretical.</p>
+<p>So here is what I did: for each game, I pulled the winning probabilities from fivethirtyeight and the corresponding odds from online bookmakers. Since bookmakers constantly update their odds (in order to have an edge over bettors), I always pulled both probabilties and odds, the night before the match. With that in hand, I simulated the following betting strategy. The bettor start with a bankroll of $100 and then bets according to the <a href="https://en.wikipedia.org/wiki/Kelly_criterion">Kelly criterion</a> for each bet.</p>
+<p>The Kelly criterion is a method to determine how much one should wager on a bet, given assumed winning probabilities, and offered odds. Kelly betting maximizes logarithmic utility. Below is a graphic display showing the Kelly criterion. On the x-axis are the probabilties that you assume an event is going to take place, and on the y-axis are the offered odds (these odds can be translated into implied probabilites of the bookie). The shading for each part of the graph shows what percentage of your current bankroll you should bet. As an example, if you believe the probability of an event to happen is close to 100% (right side of the graph), then you typically end up betting a lot (or all) of your bankroll (the yellow region of the graph). For events in which the implied probabilties of the bookie are larger than your own, you end up not betting at all - notice that this area is quite large in the graph.</p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-18-kelly-criterion_files/figure-html/unnamed-chunk-1-1.png" width="672" /><img src="https://felixthoemmes.github.io/blog/2018-06-18-kelly-criterion_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<p>An interesting observation with respect to the World Cup games was that for many matches the Kelly criterion suggested not betting at all, especially not betting on the stronger team. This indicated that the offered odds from bookies generally tended to overestimate the winning probability (or maybe 538 underestimated the performance of strong teams). I should also add that I did not use the generalized Kelly criterion to distinguish the best bet between either team winning or a draw. I simply (and incorrectly) computed the Kelly bet for each outcome separately, and thus on occasion ended up with two outcomes that received a wager.</p>
+<p>Below I am showing a linegraph that shows how the intial bankroll of $100 developed after each game. The y-axis shows relative bankroll (that means it simply tallies wins and losses). The bars at the bottom of the graph show how much was won or lost in each bet, and the size of the point indicates the amount of total stake that was wagered on each game. As an example, when Sweden and South Korea were playing, the Kelly criterion suggested a somewhat large bet on Sweden, which paid off, as indicated as the big green bar. On the other hand, in the game Brazil vs Switzerland, the Kelly criterion suggest moderate bets on Switzerland, and on a draw. The bet on Switzerland was lost, but the bet on the draw was won, resulting in a net win for this game.</p>
+<p>I will update this blog as the world cup progresses.</p>
+<pre class="r"><code>wcb &lt;- read_xlsx(&quot;C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx&quot;)
+wcb &lt;- wcb %&gt;% mutate(posneg = factor(ifelse(wcb$`Total net`&lt;0,&quot;negative&quot;,&quot;positive&quot;))) %&gt;%  select(ID,Title,&quot;Total net&quot;,&quot;Total stake&quot;,Bankrollkellyplot,posneg) %&gt;% slice(1:13)
+
+wcb$Title &lt;- reorder(factor(wcb$Title),wcb$ID)
+
+ggplot(wcb,aes(x=Title,y=Bankrollkellyplot-100)) + geom_point(aes(size=`Total stake`)) + geom_line(group=1) + theme(axis.text.x = element_text(angle=45,margin=margin(t=0,r=0,b=0,l=0),hjust=1)) +  geom_bar(data=wcb,aes(x=Title,y=`Total net`,fill=posneg),stat=&quot;identity&quot;,alpha=.2,width=.2) + scale_fill_manual(values=c(&quot;negative&quot;=&quot;firebrick&quot;,&quot;positive&quot;=&quot;darkgreen&quot;)) + ylab(&quot;Relative bankroll&quot;) +theme(axis.title.x=element_blank()) + guides(fill=FALSE,size=FALSE)</code></pre>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-18-kelly-criterion_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="r-code-to-replicate-results-and-graphs" class="section level3">
+<h3>R code to replicate results and graphs</h3>
+<pre class="r"><code>library(ggplot2)
+library(viridis)
+library(ggthemes)
+library(readxl)
+library(dplyr)
+library(magrittr)
+
+prob &lt;- seq(0,1,.005)
+odds &lt;- seq(1,20,.01)
+
+grid &lt;- expand.grid(prob=prob,odds=odds)
+
+grid$kelley &lt;- ((grid$odds*grid$prob)-1) / (grid$odds-1)
+grid$kelley[grid$kelley&lt;0] &lt;- 0
+
+ggplot(grid, aes(prob, odds, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = &quot;Assumed probability&quot;,  y= &quot;Offered odds\n&quot;) +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title=&quot;Bet&quot;)) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                     panel.grid.minor = element_blank(), axis.line = element_line(colour = &quot;black&quot;))
+
+
+
+assumedprob &lt;- seq(0,1,.005)
+
+grid2 &lt;- expand.grid(prob=prob,aprob=assumedprob)
+
+grid2$kelley &lt;- (((1/grid2$aprob)*grid2$prob)-1) / ((1/grid2$aprob)-1)
+grid2$kelley[grid2$kelley&lt;0] &lt;- 0
+
+
+ggplot(grid2, aes(prob, aprob, z = kelley)) +  
+  geom_raster(aes(fill = kelley)) + scale_fill_viridis() + labs(x = &quot;Assumed probability&quot;,  y= &quot;Offered probability\n&quot;) +
+  guides(fill = guide_legend(keywidth = 3, keyheight = 1, title=&quot;Bet&quot;)) + 
+  theme_economist(base_size = 14) + theme(panel.border = element_blank(), panel.grid.major = element_blank(),
+                                          panel.grid.minor = element_blank(), axis.line = element_line(colour = &quot;black&quot;))
+
+
+
+#Data will be put on github, but only local for now
+wcb &lt;- read_xlsx(&quot;C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx&quot;)
+wcb &lt;- wcb %&gt;% mutate(posneg = factor(ifelse(wcb$`Total net`&lt;0,&quot;negative&quot;,&quot;positive&quot;))) %&gt;%  select(ID,Title,&quot;Total net&quot;,&quot;Total stake&quot;,Bankrollkellyplot,posneg) %&gt;% slice(1:13)
+
+wcb$Title &lt;- reorder(factor(wcb$Title),wcb$ID)
+
+ggplot(wcb,aes(x=Title,y=Bankrollkellyplot-100)) + geom_point(aes(size=`Total stake`)) + geom_line(group=1) + theme(axis.text.x = element_text(angle=45,margin=margin(t=0,r=0,b=0,l=0),hjust=1)) +  geom_bar(data=wcb,aes(x=Title,y=`Total net`,fill=posneg),stat=&quot;identity&quot;,alpha=.2,width=.2) + scale_fill_manual(values=c(&quot;negative&quot;=&quot;firebrick&quot;,&quot;positive&quot;=&quot;darkgreen&quot;)) + ylab(&quot;Relative bankroll&quot;) +theme(axis.title.x=element_blank()) + guides(fill=FALSE,size=FALSE)</code></pre>
+</div>
+
+                <br>
+		<p><a href="https://felixthoemmes.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'felixthoemmesblogdown';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99017619-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/R.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
+
+
+
+
+</body>
+</html>
+
