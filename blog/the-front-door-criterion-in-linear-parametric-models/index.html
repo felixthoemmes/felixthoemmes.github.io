@@ -58,11 +58,11 @@ Consider the following DAG (directed acyclical graph) in which a treatment X has
 
 
     
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
-    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-27%2014%3a23%3a34.6346462%20-0400%20EDT%20m%3d%2b0.109289001">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-27%2014%3a23%3a34.6346462%20-0400%20EDT%20m%3d%2b0.109289001">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-27%2014%3a23%3a34.6346462%20-0400%20EDT%20m%3d%2b0.109289001">
     
-        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-27%2014%3a23%3a34.6346462%20-0400%20EDT%20m%3d%2b0.109289001">
     
 
 
@@ -196,7 +196,11 @@ Consider the following DAG (directed acyclical graph) in which a treatment X has
 <p>The total effect of X on Y, can be decomposed into the effects of X on M, and M on Y. The effect of X on M can be estimated without bias, because there is no open back-door path - the only back-door path that goes through U is blocked by the collider Y. The effect of M on Y can also be estimated without bias, because there is only one open back-door path via U, but we can close it by conditioning on X. Once we can estimate these two effects, we can use them to construct the total effect. In parametric, linear models, the total effect of X on Y, will just be the product of the two paths. Again, we see the parallels to classic mediation analysis - this is how one typically computes the the indirect effect in mediation models.</p>
 <p>In the following example, I want to demonstrate the front-door criterion using parametric, linear models. I will use a SEM (structural equation model) and ML estimation to compute the total effect of X on Y.</p>
 <p>The data-generating model mirrors the DAG in Figure 1, and can be described as follows:</p>
-<p><span class="math inline">\(U \sim N(0,1)\)</span> <span class="math inline">\(X = .5*U + \epsilon_X\)</span> <span class="math inline">\(M = .5*X + \epsilon_M\)</span> <span class="math inline">\(Y = .5*M + .5*U + \epsilon_Y\)</span> <span class="math inline">\(\epsilon_X, \epsilon_M, \epsilon_Y \sim N(0,1)\)</span></p>
+<p><span class="math inline">\(U \sim N(0,1)\)</span></p>
+<p><span class="math inline">\(X = .5*U + \epsilon_X\)</span></p>
+<p><span class="math inline">\(M = .5*X + \epsilon_M\)</span></p>
+<p><span class="math inline">\(Y = .5*M + .5*U + \epsilon_Y\)</span></p>
+<p><span class="math inline">\(\epsilon_X, \epsilon_M, \epsilon_Y \sim N(0,1)\)</span></p>
 <p>The true total effect of X on Y in this data-generating model is .25.</p>
 <p>I will simulate data from this model, and estimate (a) an unadjusted treatment effect of X on Y, (b) a front-door adjusted treatment effect of X on Y, and (c) for comparative purposes an adjusted treatment effect of X on Y, assuming that we have access to the unobserved confounder U.</p>
 <p><img src="https://felixthoemmes.github.io/blog/2018-06-27-front-door_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>

@@ -49,9 +49,13 @@ In the following example, I want to demonstrate the front-door criterion using p
 The data-generating model mirrors the DAG in Figure 1, and can be described as follows:
 
 $U \sim N(0,1)$
+
 $X = .5*U + \epsilon_X$
+
 $M = .5*X + \epsilon_M$
+
 $Y = .5*M + .5*U + \epsilon_Y$
+
 $\epsilon_X, \epsilon_M, \epsilon_Y \sim N(0,1)$
 
 The true total effect of X on Y in this data-generating model is .25. 
