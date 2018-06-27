@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://felixthoemmes.github.io/blog/the-front-door-criterion-in-linear-parametric-models/</loc>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
+  </url>
   
   <url>
     <loc>https://felixthoemmes.github.io/blog/kelly-criterion/</loc>
@@ -33,7 +39,7 @@
   
   <url>
     <loc>https://felixthoemmes.github.io/blog/</loc>
-    <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -43,8 +49,14 @@
   </url>
   
   <url>
+    <loc>https://felixthoemmes.github.io/tags/causality/</loc>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://felixthoemmes.github.io/</loc>
-    <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -68,13 +80,13 @@
   
   <url>
     <loc>https://felixthoemmes.github.io/categories/statistics/</loc>
-    <lastmod>2018-06-18T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://felixthoemmes.github.io/tags/</loc>
-    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

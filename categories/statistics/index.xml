@@ -6,10 +6,20 @@
     <description>Recent content in Statistics on Felix Thoemmes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 18 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://felixthoemmes.github.io/categories/statistics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The front-door criterion in linear, parametric models</title>
+      <link>https://felixthoemmes.github.io/blog/the-front-door-criterion-in-linear-parametric-models/</link>
+      <pubDate>Wed, 27 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://felixthoemmes.github.io/blog/the-front-door-criterion-in-linear-parametric-models/</guid>
+      <description>Inspired by a recent discussion on SEMNET, I decided to publish a short blog post about the front-door criterion. The front-door criterion was developed by Judea Pearl, as a means to identify and estimate a causal effect in the presence of unobserved confounders.
+Consider the following DAG (directed acyclical graph) in which a treatment X has an effect on an outcome Y. This effect however cannot directly be estimated without bias, because there is an unobserved confounder U.</description>
+    </item>
     
     <item>
       <title>Kelly criterion</title>

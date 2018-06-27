@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Inspired by a recent discussion on SEMNET, I decided to publish a short blog post about the front-door criterion. The front-door criterion was developed by Judea Pearl, as a means to identify and estimate a causal effect in the presence of unobserved confounders.
+Consider the following DAG (directed acyclical graph) in which a treatment X has an effect on an outcome Y. This effect however cannot directly be estimated without bias, because there is an unobserved confounder U.">
+
+<meta property="og:title" content="The front-door criterion in linear, parametric models" />
+<meta property="og:description" content="Inspired by a recent discussion on SEMNET, I decided to publish a short blog post about the front-door criterion. The front-door criterion was developed by Judea Pearl, as a means to identify and estimate a causal effect in the presence of unobserved confounders.
+Consider the following DAG (directed acyclical graph) in which a treatment X has an effect on an outcome Y. This effect however cannot directly be estimated without bias, because there is an unobserved confounder U." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://felixthoemmes.github.io/blog/the-front-door-criterion-in-linear-parametric-models/" />
+
+
+
+<meta property="article:published_time" content="2018-06-27T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-06-27T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<title>
+
+
+     The front-door criterion in linear, parametric models 
+
+</title>
+<link rel="canonical" href="https://felixthoemmes.github.io/blog/the-front-door-criterion-in-linear-parametric-models/">
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/styles/default.min.css">
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Ubuntu+Mono:400,400i,700,700i|Raleway:500">
+
+
+
+    
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/reset.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/pygments.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+    <link rel="stylesheet" href="https://felixthoemmes.github.io/css/main.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+    
+        <link rel="stylesheet" href="https://felixthoemmes.github.io/css/override.css?t=2018-06-27%2014%3a16%3a52.5661853%20-0400%20EDT%20m%3d%2b0.055139301">
+    
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://felixthoemmes.github.io/img/favicon.ico"
+
+>
+
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header">
+    <div class="container">
+        <div class="content">
+            
+                
+                
+                
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                
+                <a href="https://felixthoemmes.github.io/"><img class="avatar" src="https://felixthoemmes.github.io/img/profile.jpg" srcset="https://felixthoemmes.github.io/img/profile.jpg 1x"></a>
+            
+            <a href="https://felixthoemmes.github.io/"><div class="name">Felix Thoemmes</div></a>
+            
+            <nav>
+                <ul>
+                    
+                        <li class="nav-Blog"><a href="https://felixthoemmes.github.io/blog/"><span>Blog</span></a></li>
+                    
+                        <li class="nav-Publications"><a href="https://felixthoemmes.github.io/publications/"><span>Publications</span></a></li>
+                    
+                        <li class="nav-Teaching"><a href="https://felixthoemmes.github.io/teaching/"><span>Teaching</span></a></li>
+                    
+                        <li class="nav-Open science"><a href="https://felixthoemmes.github.io/open-science/"><span>Open Science</span></a></li>
+                    
+                        <li class="nav-Projects"><a href="https://felixthoemmes.github.io/projects/"><span>Projects</span></a></li>
+                    
+                        <li class="nav-About"><a href="https://felixthoemmes.github.io/about/"><span>About (CV)</span></a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="https://felixthoemmes.github.io/img/github.svg" alt="github" /></a>
+        
+
+        
+            <a href="//twitter.com/felixthoemmes" target="_blank" rel="noopener"><img class="icon" src="https://felixthoemmes.github.io/img/twitter.svg" alt="twitter" /></a>
+        
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="mailto:felix.thoemmes@cornell.edu"><img class="icon" src="https://felixthoemmes.github.io/img/email.svg" alt="email" /></a>
+        
+
+        
+            <a href="https://felixthoemmes.github.io/index.xml"><img class="icon" src="https://felixthoemmes.github.io/img/rss.svg" alt="rss" /></a>
+        
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    The front-door criterion in linear, parametric models
+
+</div>
+
+                    <div class="initials"><a href="https://felixthoemmes.github.io/"></a></div>
+                </div>
+                <div class="meta">
+                    
+                    <div class="date" title='Wed Jun 27 2018 00:00:00 UTC'>Jun 27, 2018</div>
+                    
+                    
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Inspired by a recent discussion on <a href="https://listserv.ua.edu/cgi-bin/wa?A2=ind1806&amp;L=SEMNET&amp;P=233134">SEMNET</a>, I decided to publish a short blog post about the front-door criterion. The front-door criterion was developed by Judea Pearl, as a means to identify and estimate a causal effect in the presence of unobserved confounders.</p>
+<p>Consider the following DAG (directed acyclical graph) in which a treatment X has an effect on an outcome Y. This effect however cannot directly be estimated without bias, because there is an unobserved confounder U. However, there is a variable M that is caused by X, and causes Y, and importantly is not itself caused by the unobserved confounder U.</p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-27-front-door_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Equally important is that the effect of X on Y goes entirely through M. Psychologists would tend to call this a full mediation model. For a fuller description of the front-door criterion, you can check Pearl’s book “Causality”, but here is a brief intuitive explanation.</p>
+<p>The total effect of X on Y, can be decomposed into the effects of X on M, and M on Y. The effect of X on M can be estimated without bias, because there is no open back-door path - the only back-door path that goes through U is blocked by the collider Y. The effect of M on Y can also be estimated without bias, because there is only one open back-door path via U, but we can close it by conditioning on X. Once we can estimate these two effects, we can use them to construct the total effect. In parametric, linear models, the total effect of X on Y, will just be the product of the two paths. Again, we see the parallels to classic mediation analysis - this is how one typically computes the the indirect effect in mediation models.</p>
+<p>In the following example, I want to demonstrate the front-door criterion using parametric, linear models. I will use a SEM (structural equation model) and ML estimation to compute the total effect of X on Y.</p>
+<p>The data-generating model mirrors the DAG in Figure 1, and can be described as follows:</p>
+<p><span class="math inline">\(U \sim N(0,1)\)</span> <span class="math inline">\(X = .5*U + \epsilon_X\)</span> <span class="math inline">\(M = .5*X + \epsilon_M\)</span> <span class="math inline">\(Y = .5*M + .5*U + \epsilon_Y\)</span> <span class="math inline">\(\epsilon_X, \epsilon_M, \epsilon_Y \sim N(0,1)\)</span></p>
+<p>The true total effect of X on Y in this data-generating model is .25.</p>
+<p>I will simulate data from this model, and estimate (a) an unadjusted treatment effect of X on Y, (b) a front-door adjusted treatment effect of X on Y, and (c) for comparative purposes an adjusted treatment effect of X on Y, assuming that we have access to the unobserved confounder U.</p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-27-front-door_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>As we can see, the unadjusted treatment effect is biased - and badly so. We would expect this, given the presence of the unobserved confounder U. Now let’s see how the front-door adjusted treatment effect fares.</p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-27-front-door_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>As we can see in the graph above, it is generally unbiased. The two lines which represent the true treatment effect (.25) and the average of the estimated front-door effects are essentially on top of each other. The remarkable thing about the front-door adjusted treatment effect is that we can obtain unbiased estimate, <em>despite the fact that we do NOT have observed the confounder.</em></p>
+<p>Just for comparative purposes, here are the treatment effects that we derive from using regression adjustment, and pretending that we have access to the unobserved confounder. This effect is of course also unbiased.</p>
+<p><img src="https://felixthoemmes.github.io/blog/2018-06-27-front-door_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Just like instrumental variable estimation, the front-door criterion allows us to obtain unbiased treatment effects, without the need of having to collect all unobserved confouders. This however, does not mean that using the front-door criterion is easy, in a sense that it could be routinely done. The hard part is finding a variable M that fulfills the requirements of (a) being “shielded” off the unobserved confounders of X and Y (via X), and (b) the absence of a direct effect of X on Y.</p>
+<p>I am personally not aware of many published examples of the front-door criterion. Alex Chino has a much more extensive <a href="http://www.alexchinco.com/example-front-door-criterion/">blog post</a>, where he discusses the example of voting patterns, same school background, and seating assignment in the US Senate published by Cohen and Malloy (2010) (<a href="http://www.nber.org/papers/w16437" class="uri">http://www.nber.org/papers/w16437</a>). Overall, I think it’s fair to say that variables that would permit one to use the front-door criterion are rare - in the same sense that instrumental variables tend to be somewhat rare. Or maybe we just haven’t looked for them very hard, as the front-door criterion is still not widely known.</p>
+<div id="r-code-to-replicate-results-and-graphs" class="section level3">
+<h3>R code to replicate results and graphs</h3>
+<pre class="r"><code>library(lavaan)
+library(ggplot2)
+library(ggthemes)
+library(ggdag)
+library(dagitty)
+
+
+x &lt;- dagitty(&#39;dag {
+             bb=&quot;0,0,1,1&quot;
+             M [pos=&quot;0.5,0&quot;]
+             U [pos=&quot;0.5,0.5&quot;]
+             X [pos=&quot;0,0&quot;]
+             Y [pos=&quot;1,0&quot;]
+             M -&gt; Y
+             U -&gt; X
+             U -&gt; Y
+             X -&gt; M
+             }&#39;)
+
+ggdag(x) + theme_economist() + theme(axis.line=element_blank(),axis.text.x=element_blank(),
+                                     axis.text.y=element_blank(),axis.ticks=element_blank(),
+                                     axis.title.x=element_blank(),
+                                     axis.title.y=element_blank(),legend.position=&quot;none&quot;,
+                                     panel.background=element_blank(),panel.border=element_blank(),panel.grid.major=element_blank())
+
+
+fd &lt;- function(n,a,b,u1,u2) {
+  U &lt;- rnorm(n,0,1)
+  e_x &lt;- rnorm(n,0,1)
+  e_m &lt;- rnorm(n,0,1)
+  e_y &lt;- rnorm(n,0,1)
+  X &lt;- u1*U + e_x
+  M &lt;- a*X + e_m
+  Y &lt;- b*M + u2*U + e_y
+  
+  df1 &lt;- data.frame(X,M,Y,U)
+  
+  fdmodel &lt;- &quot;M ~ a*X
+              Y ~ b*M
+              X ~~ Y
+              FD := a*b&quot;
+              
+  
+  fd &lt;- sem(fdmodel,df1)@ParTable$est[7]
+  unadj &lt;- coef(lm(Y~X))[2]
+  adj &lt;- coef(lm(Y~X+U))[2]
+  return(c(fd,unadj,adj))
+}
+
+res &lt;- data.frame(t(replicate(5000,fd(100,.5,.5,.5,.5))))
+names(res) &lt;- c(&quot;fd&quot;,&quot;unadj&quot;,&quot;adj&quot;)
+
+cols &lt;- viridis(3)
+
+ggplot(res,aes(x=fd)) + geom_density(alpha=.3,fill=cols[1]) + theme_economist() + 
+  geom_vline(xintercept = .25,col=cols[2],size=1.25) + 
+  geom_vline(xintercept = mean(res$fd),col=cols[3],size=1.25) + xlab(&quot;Front-door&quot;) + ylab(&quot;Density&quot;) + 
+  coord_cartesian(xlim=c(.1,.8)) + ggtitle(&quot;Parameter estimates using front-door criterion&quot;)
+
+ggplot(res,aes(x=adj)) + geom_density(alpha=.3,fill=cols[1]) + theme_economist() + 
+  geom_vline(xintercept = .25,col=cols[2],size=1.25) + 
+  geom_vline(xintercept = mean(res$adj),col=cols[3],size=1.25) + xlab(&quot;Adjusted&quot;) + ylab(&quot;Density&quot;) +  
+  coord_cartesian(xlim=c(.1,.8)) + ggtitle(&quot;Parameter estimates using adjustment&quot;)
+
+ggplot(res,aes(x=unadj)) + geom_density(alpha=.3,fill=cols[1]) + theme_economist() + 
+  geom_vline(xintercept = .25,col=cols[2],size=1.25) + 
+  geom_vline(xintercept = mean(res$unadj),col=cols[3],size=1.25) + xlab(&quot;Unadjusted&quot;) + ylab(&quot;Density&quot;) +  
+  coord_cartesian(xlim=c(.1,.8)) + ggtitle(&quot;Unadjusted parameter estimates&quot;)</code></pre>
+</div>
+
+                <br>
+		<p><a href="https://felixthoemmes.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+      
+      if (window.location.hostname == "localhost")
+                return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'felixthoemmesblogdown';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-99017619-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/languages/R.min.js"></script>
+  
+
+  <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+  </script>
+
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    <script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+    
+
+
+
+
+</body>
+</html>
+

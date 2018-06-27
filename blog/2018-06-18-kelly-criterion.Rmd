@@ -15,7 +15,7 @@ So here is what I did: for each game, I pulled the winning probabilities from fi
 The Kelly criterion is a method to determine how much one should wager on a bet, given assumed winning probabilities, and offered odds. Kelly betting maximizes logarithmic utility. Below is a graphic display showing the Kelly criterion. On the x-axis are the probabilities that you assume an event is going to take place, and on the y-axis are the offered odds (these odds can be translated into implied probabilities of the bookie). The shading for each part of the graph shows what percentage of your current bankroll you should bet. As an example, if you believe the probability of an event to happen is close to 100% (right side of the graph), then you typically end up betting a lot (or all) of your bankroll (the yellow region of the graph). For events in which the implied probabilities of the bookie are larger than your own, you end up not betting at all - notice that this area is quite large in the graph. 
 
 
-```{r, echo=FALSE,warning=FALSE,message=FALSE}
+```{r, echo=FALSE,warning=FALSE,message=FALSE, cache=TRUE}
 library(ggplot2)
 library(viridis)
 library(ggthemes)
@@ -60,12 +60,19 @@ An interesting observation with respect to the World Cup games was that for many
 
 Below I am showing a linegraph that shows how the initial bankroll of $100 developed after each game. The y-axis shows relative bankroll (that means it simply tallies wins and losses). The bars at the bottom of the graph show how much was won or lost in each bet, and the size of the point indicates the amount of total stake that was wagered on each game. As an example, when Sweden and South Korea were playing, the Kelly criterion suggested a somewhat large bet on Sweden, which paid off, as indicated as the big green bar. On the other hand, in the game Brazil vs Switzerland, the Kelly criterion suggest moderate bets on Switzerland, and on a draw. The bet on Switzerland was lost, but the bet on the draw was won, resulting in a net win for this game. 
 
-I will update this blog as the world cup progresses. 
+I will update this blog as the world cup progresses, but at this point, it's fair to say that this particular betting scheme is doing quite well. 
 
 
 ```{r, message=FALSE,warning=FALSE, echo=FALSE}
-wcb <- read_xlsx("C:\\Users\\fjt36\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx")
-wcb <- wcb %>% mutate(posneg = factor(ifelse(wcb$`Total net`<0,"negative","positive"))) %>%  select(ID,Title,"Total net","Total stake",Bankrollkellyplot,posneg) %>% slice(1:13)
+library(ggplot2)
+library(viridis)
+library(ggthemes)
+library(readxl)
+library(dplyr)
+library(magrittr)
+
+wcb <- read_xlsx("C:\\Users\\fjt36-admin\\Dropbox\\WORK\\2018 Winter Cornell\\kellybettingwc.xlsx")
+wcb <- wcb %>% mutate(posneg = factor(ifelse(wcb$`Total net`<0,"negative","positive"))) %>%  select(ID,Title,"Total net","Total stake",Bankrollkellyplot,posneg) %>% slice(1:42)
 
 wcb$Title <- reorder(factor(wcb$Title),wcb$ID)
 
